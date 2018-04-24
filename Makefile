@@ -44,6 +44,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
+		$(WAY)/run_cmd/run_and_or.c		\
 		$(WAY)/run_cmd/run_right_chevron.c	\
 		$(WAY)/run_cmd/run_left_chevron.c	\
 		$(WAY)/run_cmd/run_semicolon.c		\

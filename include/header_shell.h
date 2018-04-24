@@ -102,9 +102,15 @@ int	run_left_chevron(shell_t *shell, tree_t *tree);
 
 int	run_semicolon(shell_t *shell, tree_t *tree);
 
-static const optab_t run_op[8] = {
+int	run_or(shell_t *shell, tree_t *tree);
+
+int	run_and(shell_t *shell, tree_t *tree);
+
+static const optab_t run_op[10] = {
 	{";", run_semicolon},
-	{"|", run_pipe},
+	{"||", NULL},
+	{"|", run_or},
+	{"&&", run_and},
 	{"&", NULL},
 	{"<", run_left_chevron},
 	{"<<", NULL},
