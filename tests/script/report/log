@@ -1,0 +1,38 @@
+NEW REPORT
+succeed about:  ls /dev
+succeed about:  ls -l /dev
+succeed about:  ls -l /dev
+succeed about:  echo "salut"
+succeed about:  echo salut
+succeed about:  ls -l /dev | grep tty
+succeed about:  ls -l /dev | grep tty | more
+succeed about:  ls -l /dev ; ls -l /dev
+succeed about:  mkdir test ; cd test ; ls -a /dev ; ls /dev | cat | wc -c > tutu ; cat tutu
+succeed about:  ./lemin/lem_in < ./lemin/anthill
+failed about: bad_command sizas
+succeed about:  cd
+succeed about:  cd .././; pwd; cd -
+succeed about:  cd ../../../../../../../../../../../../../../../../../../../../../../../../../../../../../ ; pwd ; cd -
+succeed about:  cat /etc/passwd | tr -s abcdefghijklmnopqrstuvwxyz | cut -c 2 | grep -e a -e b -e ls > toto
+succeed about:  date >> toto
+succeed about:  cat < toto
+succeed about:  <
+succeed about:  <<
+succeed about:  >
+succeed about:  >>
+succeed about:  < a
+succeed about:  << a
+succeed about:  > a
+succeed about:  >> a
+succeed about:  a <
+succeed about:  a <<
+succeed about:  a >
+succeed about:  a >>
+succeed about:  a < a
+succeed about:  a << a
+succeed about:  a > a
+succeed about:  a >> a
+succeed about:  echo "ls /dev" | tcsh >
+succeed about:  ./lemin/lem_in < ./lemin/anthill
+succeed about:  ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls /dev | grep tty
+succeed about: 
