@@ -28,7 +28,7 @@ succeed about:  a <
 succeed about:  a <<
 succeed about:  a >
 succeed about:  a >>
-succeed about:  a < a
+failed about: a < a
 succeed about:  a << a
 succeed about:  a > a
 succeed about:  a >> a

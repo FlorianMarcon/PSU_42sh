@@ -6,25 +6,16 @@
 */
 
 #include "my.h"
+#include "header_shell.h"
 
 int	is_operator(char *str)
 {
 	int a = 0;
-	const char *operator[8]  = {
-		";",
-		"|",
-		"&",
-		">",
-		">>",
-		"<<",
-		"<",
-		NULL
-	};
 
 	if (str == NULL)
 		return (0);
-	while (operator[a] != NULL)
-		if (my_strcmp(operator[a++], str) == 0)
+	while (run_op[a].label != NULL)
+		if (my_strcmp(run_op[a++].label, str) == 0)
 			return (1);
 	return (0);
 }

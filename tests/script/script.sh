@@ -19,13 +19,14 @@ then
     exit 1
 fi
 
-cp ../../mysh ./
+prog=42sh
+cp ../../$prog ./
 
 
 
 mkdir -p report
 echo "NEW REPORT" > report/log
-prog=mysh
+
 
 
 

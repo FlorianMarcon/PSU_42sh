@@ -31,22 +31,12 @@ char	*new_str(char *str, int i, char *op)
 char	*operator_is_present(char *str)
 {
 	int a = 0;
-	const char *operator[8]  = {
-		";",
-		"|",
-		"&",
-		">>",
-		">",
-		"<<",
-		"<",
-		NULL
-	};
 
 	if (str == NULL)
 		return (NULL);
-	while (operator[a] != NULL) {
-		if (my_strncmp(operator[a], str, my_strlen(operator[a])) == 0)
-			return (my_strdup(operator[a]));
+	while (run_op[a].label != NULL) {
+		if (my_strncmp(run_op[a].label, str, my_strlen(run_op[a].label)) == 0)
+			return (my_strdup(run_op[a].label));
 		a++;
 	}
 	return (NULL);
