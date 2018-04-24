@@ -12,14 +12,11 @@
 #include "environment.h"
 #include "binary.h"
 
-shell_t	*generate_shell(char **envp)
+shell_t	*generate_shell(char **envp, shell_t *shell)
 {
-	shell_t *shell = malloc(sizeof(*shell));
 	hm_object_t *obj;
 	char *str = NULL;
 
-	if (shell == NULL)
-		return (NULL);
 	shell->arr_env = envp;
 	shell->list_env = generate_list_env(envp);
 	shell->env = generate_hm_env(shell->list_env);
@@ -30,5 +27,6 @@ shell_t	*generate_shell(char **envp)
 		str = (char *)obj->data;
 	shell->binary = generate_hm_binary(str);
 	shell->exit = false;
+	shell->process_back = NULL;
 	return (shell);
 }

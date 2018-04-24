@@ -22,6 +22,7 @@ typedef struct shell_s {
 
 	//binary
 	hash_map_t *binary;
+	linked_list_t *process_back;
 
 	//
 	bool exit;
@@ -43,7 +44,7 @@ char	**create_tab_op_for_command_line(char *str);
 
 tree_t	*get_next_instruction(shell_t *shell, int fd);
 
-shell_t	*generate_shell(char **envp);
+shell_t	*generate_shell(char **envp, shell_t *shell);
 
 char	*get_path(hash_map_t *map_binary, char *cmd);
 
@@ -110,16 +111,19 @@ int	run_or(shell_t *shell, tree_t *tree);
 
 int	run_and(shell_t *shell, tree_t *tree);
 
-static const optab_t run_op[10] = {
+int	run_background(shell_t *shell, tree_t *node);
+
+static const optab_t run_op[11] = {
 	{";", run_semicolon},
 	{"||", run_or},
 	{"|", run_pipe},
 	{"&&", run_and},
-	{"&", NULL},
+	{"<<<", NULL},
 	{"<<", run_double_left_chevron},
 	{"<", run_left_chevron},
 	{">>", run_double_right_chevron},
 	{">", run_right_chevron},
+	{"&", run_background},
 	{NULL, NULL}
 };
 

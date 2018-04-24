@@ -24,8 +24,10 @@ int	basic_exec(shell_t *shell, char **cmd)
 		return (1);
 	pid = fork();
 	if (pid == 0) {
-		if (execve(path, cmd, shell->arr_env) == -1)
+		if (execve(path, cmd, shell->arr_env) == -1) {
 			fprintf(stderr, "%s: Command not found.\n", cmd[0]);
+			exit (1);
+		}
 	}
 	waitpid(pid, &lock, 0);
 	return (lock);

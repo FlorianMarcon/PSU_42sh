@@ -13,17 +13,15 @@
 int	main(int ac, char **av, char **envp)
 {
 	(void)av;
-	shell_t *shell;
+	shell_t shell;
 	int res;
 
 	if (ac > 1)
 		return (1);
-	shell = generate_shell(envp);
-	if (shell == NULL)
+	if (generate_shell(envp, &shell) == NULL)
 		return (84);
-	res = minishell(shell);
-	hm_destroy(shell->env);
-	hm_destroy(shell->binary);
-	free(shell);
+	res = minishell(&shell);
+	hm_destroy(shell.env);
+	hm_destroy(shell.binary);
 	return (res);
 }

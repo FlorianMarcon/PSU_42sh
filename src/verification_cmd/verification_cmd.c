@@ -14,7 +14,7 @@ int	verif_error(tree_t *tree)
 	char **cmd = (char **)tree->data;
 	char *op = operator_is_present(cmd[0]);
 
-	if (my_strcmp(op, ";") == 0)
+	if (my_strcmp(op, ";") == 0 || my_strcmp(op, "&") == 0)
 		return (0);
 	else {
 		if (tree->left == NULL || tree->right == NULL) {
