@@ -63,6 +63,8 @@ char	*separation_between_instruction_operator(char *str);
 
 int	verification_cmd(tree_t *node);
 
+int	*create_pipe(void);
+
 // builtin
 
 typedef struct built_s {
@@ -100,6 +102,8 @@ int	run_double_right_chevron(shell_t *shell, tree_t *tree);
 
 int	run_left_chevron(shell_t *shell, tree_t *tree);
 
+int	run_double_left_chevron(shell_t *shell, tree_t *tree);
+
 int	run_semicolon(shell_t *shell, tree_t *tree);
 
 int	run_or(shell_t *shell, tree_t *tree);
@@ -108,14 +112,14 @@ int	run_and(shell_t *shell, tree_t *tree);
 
 static const optab_t run_op[10] = {
 	{";", run_semicolon},
-	{"||", NULL},
-	{"|", run_or},
+	{"||", run_or},
+	{"|", run_pipe},
 	{"&&", run_and},
 	{"&", NULL},
+	{"<<", run_double_left_chevron},
 	{"<", run_left_chevron},
-	{"<<", NULL},
-	{">", run_right_chevron},
 	{">>", run_double_right_chevron},
+	{">", run_right_chevron},
 	{NULL, NULL}
 };
 

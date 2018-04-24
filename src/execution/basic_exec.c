@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <stdio.h>
 #include "my.h"
 #include "header_shell.h"
 #include "binary.h"
@@ -24,7 +25,7 @@ int	basic_exec(shell_t *shell, char **cmd)
 	pid = fork();
 	if (pid == 0) {
 		if (execve(path, cmd, shell->arr_env) == -1)
-			my_printf("%s: Command not found.\n");
+			fprintf(stderr, "%s: Command not found.\n", cmd[0]);
 	}
 	waitpid(pid, &lock, 0);
 	return (lock);

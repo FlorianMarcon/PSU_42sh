@@ -9,7 +9,7 @@ succeed about:  ls -l /dev | grep tty | more
 succeed about:  ls -l /dev ; ls -l /dev
 succeed about:  mkdir test ; cd test ; ls -a /dev ; ls /dev | cat | wc -c > tutu ; cat tutu
 succeed about:  ./lemin/lem_in < ./lemin/anthill
-failed about: bad_command sizas
+succeed about:  bad_command sizas
 succeed about:  cd
 succeed about:  cd .././; pwd; cd -
 succeed about:  cd ../../../../../../../../../../../../../../../../../../../../../../../../../../../../../ ; pwd ; cd -
@@ -28,11 +28,14 @@ succeed about:  a <
 succeed about:  a <<
 succeed about:  a >
 succeed about:  a >>
-failed about: a < a
+succeed about:  a < a
 succeed about:  a << a
 succeed about:  a > a
 succeed about:  a >> a
 succeed about:  echo "ls /dev" | tcsh >
 succeed about:  ./lemin/lem_in < ./lemin/anthill
 succeed about:  ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls /dev | grep tty
-succeed about: 
+succeed about:  cat ./data/test_double_left_chevron
+succeed about:  echo "saluuuut" && echo "succees"
+succeed about:  zefhzehdZDHE || echo "display that"
+succeed about:  echo "salut " || echo "this is no execute"

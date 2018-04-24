@@ -16,6 +16,7 @@ int	run_and(shell_t *shell, tree_t *tree)
 }
 int	run_or(shell_t *shell, tree_t *tree)
 {
+	fprintf(stderr, "RUN_OR\n");
 	run_cmd(shell, tree->left);
 	if (shell->value_exit != 0)
 		run_cmd(shell, tree->right);
