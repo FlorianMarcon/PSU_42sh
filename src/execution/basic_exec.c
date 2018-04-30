@@ -14,6 +14,13 @@
 #include "binary.h"
 #include "hash_map.h"
 
+void	get_return(shell_t *shell, int lock)
+{
+	if (WIFEXITED(lock))
+		shell->value_exit = WEXITSTATUS(lock);
+	if (WIFSIGNALED(lock))
+		shell->value_exit = WSTOPSIG(lock);
+}
 int	basic_exec(shell_t *shell, char **cmd)
 {
 	pid_t pid;
@@ -26,9 +33,11 @@ int	basic_exec(shell_t *shell, char **cmd)
 	if (pid == 0) {
 		if (execve(path, cmd, shell->arr_env) == -1) {
 			fprintf(stderr, "%s: Command not found.\n", cmd[0]);
-			exit (1);
+			exit(1);
 		}
 	}
 	waitpid(pid, &lock, 0);
 	return (lock);
 }
+
+// il faut gerer les signaux
