@@ -35,7 +35,8 @@ char	*operator_is_present(char *str)
 	if (str == NULL)
 		return (NULL);
 	while (run_op[a].label != NULL) {
-		if (my_strncmp(run_op[a].label, str, my_strlen(run_op[a].label)) == 0)
+		if (my_strncmp(run_op[a].label,
+		str, my_strlen(run_op[a].label)) == 0)
 			return (my_strdup(run_op[a].label));
 		a++;
 	}

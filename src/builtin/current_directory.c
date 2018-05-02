@@ -25,7 +25,8 @@ int	current_directory(shell_t *shell, char **cmd)
 			shell->old_pwd = my_strdup(shell->pwd);
 			getcwd(shell->pwd, sizeof(shell->pwd));
 		} else
-			fprintf(stderr, "%s: No such file or directory.\n", cmd[1]);
+			fprintf(stderr,
+			"%s: No such file or directory.\n", cmd[1]);
 	}
 	return (0);
 }

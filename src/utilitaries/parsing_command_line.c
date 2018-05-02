@@ -38,7 +38,8 @@ tree_t	*parsing_command_line(char **cmd)
 			return (NULL);
 		free(cmd[i]);
 		cmd[i] = NULL;
-		tree_link_node(tree, parsing_command_line(&cmd[i + 1]), parsing_command_line(cmd));
+		tree_link_node(tree, parsing_command_line(&cmd[i + 1]),
+		parsing_command_line(cmd));
 	}
 	return (tree);
 }
