@@ -15,7 +15,7 @@
 typedef struct shell_s {
 	// var env
 	hash_map_t *env;
-	linked_list_t *list_env;
+	env_t *env;
 	char **arr_env;
 	char pwd[100];
 	char *old_pwd;

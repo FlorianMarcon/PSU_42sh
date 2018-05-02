@@ -5,7 +5,7 @@
 ** setenv
 */
 
-#include "env.h"
+#include "header_shell.h"
 
 char	*change_env(char **cmd, char *envp)
 {
@@ -43,10 +43,10 @@ int	mod_env(char **cmd, env_t *env)
 	return (0);
 }
 
-void	set_env(char **cmd, env_t *envp)
+void	set_env(shell_t *shell, char **cmd)
 {
 	if (cmd[1] == NULL)
 		return;
-	if (mod_env(cmd, envp) == 0)
-		create_env(cmd, envp);
+	if (mod_env(cmd, shell->envp) == 0)
+		create_env(cmd, shell->envp);
 }

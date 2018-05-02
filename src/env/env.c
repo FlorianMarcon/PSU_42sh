@@ -5,13 +5,15 @@
 ** is_built_in
 */
 
-#include "env.h"
+#include "header_shell.h"
 
-void	env(env_t *envp)
+void	env(shell_t *shell, char **cmd)
 {
-	while (envp != NULL) {
-		my_putstr(envp->data);
+	if (cmd == NULL)
+		return;
+	while (shell->env != NULL) {
+		my_putstr(shell->env->data);
 		my_putchar('\n');
-		envp = envp->next;
+		shell->env = shell->env->next;
 	}
 }
