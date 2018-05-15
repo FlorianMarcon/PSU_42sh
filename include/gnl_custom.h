@@ -9,8 +9,11 @@
 #define GNL_CUSTOM_
 
 #include <stdlib.h>
+#include <termios.h>
 
 char	*gnl_custom(void);
+
+void	gnl_custom_set_terminal(struct termios *term);
 
 typedef struct	gnl_builtin_s {
 	char label;

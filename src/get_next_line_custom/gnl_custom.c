@@ -45,6 +45,7 @@ char	*gnl_custom(void)
 	str[0] = '\0';
 	while ((count = read(0, new, 1)) != -1 && new[0] != '\n')
 		str = gnl_treatement(str, new, &index);
+	dprintf(1, "\n");
 	if (str != NULL)
 		return (str);
 	return (NULL);

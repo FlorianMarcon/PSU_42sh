@@ -52,6 +52,10 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/run_cmd/run_background.c		\
 		$(WAY)/execution/basic_exec.c		\
 		$(WAY)/verification_cmd/verification_cmd.c	\
+		$(WAY)/get_next_line_custom/gnl_custom.c	\
+		$(WAY)/get_next_line_custom/gnl_custom_set_terminal.c	\
+		$(WAY)/get_next_line_custom/treatement/gnl_delete_char.c	\
+		$(WAY)/get_next_line_custom/treatement/gnl_special.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
