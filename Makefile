@@ -58,7 +58,7 @@ OBJ	=	$(SRC:.c=.o)
 CFLAGS	=	-W -Wall -Wextra -Werror -g3
 CFLAGS	+=	-I./include
 
-LDFLAGS	=
+LDFLAGS	=	-lncurses
 
 WAY_LIB	=	./lib/my
 

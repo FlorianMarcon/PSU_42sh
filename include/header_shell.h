@@ -9,6 +9,8 @@
 #define SHELL_
 
 #include <stdbool.h>
+#include <termios.h>
+#include <unistd.h>
 #include "hash_map.h"
 #include "tree.h"
 
@@ -27,6 +29,10 @@ typedef struct shell_s {
 	//
 	bool exit;
 	int value_exit;
+
+	//termios
+	struct termios term;
+	struct termios old_term;
 
 }shell_t;
 

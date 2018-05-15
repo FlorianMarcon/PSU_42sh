@@ -7,6 +7,8 @@
 
 #include <unistd.h>
 #include <stdbool.h>
+#include <termios.h>
+#include <unistd.h>
 #include "header_shell.h"
 #include "hash_map.h"
 #include "environment.h"
@@ -26,6 +28,7 @@ shell_t	*generate_shell(char **envp, shell_t *shell)
 	if (obj != NULL)
 		str = (char *)obj->data;
 	shell->binary = generate_hm_binary(str);
+	shell->value_exit = 0;
 	shell->exit = false;
 	shell->process_back = NULL;
 	return (shell);
