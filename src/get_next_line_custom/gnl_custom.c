@@ -12,12 +12,6 @@
 #include "gnl_custom.h"
 #include "my.h"
 
-void	gnl_clear_line(unsigned int size)
-{
-	for (unsigned int i = 0; i < size; i++) {
-		dprintf(1, "\b \b");
-	}
-}
 char	*gnl_treatement(char *str, char *new, unsigned int *index)
 {
 	char *tmp = NULL;
@@ -29,7 +23,7 @@ char	*gnl_treatement(char *str, char *new, unsigned int *index)
 			return (str);
 		}
 	}
-	gnl_clear_line(strlen(str) - strlen(&str[*index]));
+	gnl_clear_nspace(strlen(str) - strlen(&str[*index]));
 	tmp = my_strcat(new, &str[*index]);
 	str[*index] = '\0';
 	str = my_strcat(str, tmp);

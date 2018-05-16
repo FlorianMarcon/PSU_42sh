@@ -15,6 +15,8 @@ char	*gnl_custom(void);
 
 void	gnl_custom_set_terminal(struct termios *term);
 
+void	gnl_clear_nspace(unsigned int size);
+
 typedef struct	gnl_builtin_s {
 	char label;
 	char	*(*ptr)(char *, unsigned int *);
