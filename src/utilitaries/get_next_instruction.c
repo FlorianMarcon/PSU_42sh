@@ -10,6 +10,21 @@
 #include "header_shell.h"
 #include "gnl_custom.h"
 
+// ici tout le parsing sous for de string
+
+char	*preparsing(char *str)
+{
+	str = separation_between_instruction_operator(str);
+	return (str);
+}
+
+// ici tout le parsing sous form de tableau
+
+char	**postparsing(char **tab)
+{
+	return (tab);
+}
+
 tree_t	*get_next_instruction(shell_t *shell, int fd)
 {
 	char *str = NULL;
@@ -23,12 +38,12 @@ tree_t	*get_next_instruction(shell_t *shell, int fd)
 		str = get_next_line(fd);
 	if (str == NULL)
 		return (NULL);
-	str = separation_between_instruction_operator(str);
+	preparsing(str);
 	if ((tab = parsing_str(str, ' ' | '\t')) == NULL)
 		return (NULL);
-	if ((cmd = parsing_command_line(tab)) == NULL) {
+	tab = postparsing(tab);
+	if ((cmd = parsing_command_line(tab)) == NULL)
 		cmd = tree_create_node(NULL, NULL, NULL);
-	}
 	free(str);
 	free(tab);
 	return (cmd);
