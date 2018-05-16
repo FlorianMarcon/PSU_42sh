@@ -13,8 +13,10 @@ int	current_directory(shell_t *shell, char **cmd)
 {
 	char *path;
 
-	if (len_tab(cmd) > 2)
+	if (len_tab(cmd) > 2) {
+		fprintf(stderr, "cd: Too many arguments.\n");
 		return (1);
+	}
 	if (len_tab(cmd) == 2) {
 		path = cmd[1];
 		if (my_strcmp(path, "-") == 0)
