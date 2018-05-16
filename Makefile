@@ -77,7 +77,9 @@ LIB	=	-L$(WAY_LIB) -lmy
 
 NAME	=	42sh
 
-all:	$(OBJ)
+all:	$(NAME)
+
+$(NAME):$(OBJ)
 	make -C./$(WAY_LIB)
 	$(CC) -o $(NAME) $(OBJ) $(LIB) $(LDFLAGS)
 

@@ -50,7 +50,7 @@ char	**create_tab_op_for_command_line(char *str);
 
 tree_t	*get_next_instruction(shell_t *shell, int fd);
 
-shell_t	*generate_shell(char **envp, shell_t *shell);
+unsigned int	generate_shell(char **envp, shell_t *shell);
 
 char	*get_path(hash_map_t *map_binary, char *cmd);
 
