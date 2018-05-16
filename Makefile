@@ -52,13 +52,19 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/run_cmd/run_background.c		\
 		$(WAY)/execution/basic_exec.c		\
 		$(WAY)/verification_cmd/verification_cmd.c	\
+		$(WAY)/get_next_line_custom/gnl_custom.c	\
+		$(WAY)/get_next_line_custom/gnl_clear_nspace.c	\
+		$(WAY)/get_next_line_custom/gnl_custom_set_terminal.c	\
+		$(WAY)/get_next_line_custom/treatement/gnl_delete_char.c	\
+		$(WAY)/get_next_line_custom/treatement/gnl_special.c	\
+		$(WAY)/get_next_line_custom/treatement/gnl_arrow.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
 CFLAGS	=	-W -Wall -Wextra -Werror -g3
 CFLAGS	+=	-I./include
 
-LDFLAGS	=
+LDFLAGS	=	-lncurses
 
 WAY_LIB	=	./lib/my
 
