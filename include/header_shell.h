@@ -79,6 +79,8 @@ typedef struct built_s {
 	int (*ptr)(shell_t *, char **);
 }built_t;
 
+bool	is_builtin(char *cmd);
+
 int	env(shell_t *shell, char **cmd);
 
 int	exit_program(shell_t *shell, char **cmd);
@@ -87,11 +89,17 @@ int	current_directory(shell_t *shell, char **cmd);
 
 int	set_env(shell_t *shell, char **cmd);
 
-static const built_t builtin [5] = {
+int	where(shell_t *shell, char **cmd);
+
+int	which(shell_t *shell, char **cmd);
+
+static const built_t builtin[7] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
 	{"setenv", set_env},
+	{"where", where},
+	{"where", which},
 	{NULL, NULL}
 };
 // run cmd
