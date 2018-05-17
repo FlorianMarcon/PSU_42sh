@@ -14,7 +14,7 @@
 #include "environment.h"
 #include "binary.h"
 
-shell_t	*generate_shell(char **envp, shell_t *shell)
+unsigned int	generate_shell(char **envp, shell_t *shell)
 {
 	hm_object_t *obj;
 	char *str = NULL;
@@ -31,5 +31,5 @@ shell_t	*generate_shell(char **envp, shell_t *shell)
 	shell->value_exit = 0;
 	shell->exit = false;
 	shell->process_back = NULL;
-	return (shell);
+	return (0);
 }

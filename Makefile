@@ -39,10 +39,13 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/display_prompt.c	\
 		$(WAY)/utilitaries/separation_between_instruction_operator.c\
 		$(WAY)/utilitaries/get_old_pwd.c	\
+		$(WAY)/builtin/is_builtin.c		\
 		$(WAY)/builtin/env.c			\
 		$(WAY)/builtin/set_env.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
+		$(WAY)/builtin/where.c		\
+		$(WAY)/builtin/which.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\
@@ -75,7 +78,9 @@ LIB	=	-L$(WAY_LIB) -lmy
 
 NAME	=	42sh
 
-all:	$(OBJ)
+all:	$(NAME)
+
+$(NAME):$(OBJ)
 	make -C./$(WAY_LIB)
 	$(CC) -o $(NAME) $(OBJ) $(LIB) $(LDFLAGS)
 

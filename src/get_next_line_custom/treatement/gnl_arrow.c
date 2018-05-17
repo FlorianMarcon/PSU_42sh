@@ -11,22 +11,22 @@
 
 char	*gnl_arrow(char *str, unsigned int *index)
 {
-        char new[2] = " \0";
+	char new[2] = " \0";
 
-        if (read(0, new, 1) == -1)
-	        return (str);
-        switch (new[0]) {
-                case 67: if (*index != strlen(str)) {
-                        dprintf(1, "\033[1C");
-                        *index = *index + 1;
-                }
-                	break;
-                case 68: if (*index != 0) {
-                        dprintf(1, "\033[1D");
-                        *index = *index - 1;
-                }
-	                break;
-                default: break;
-        }
-        return (str);
+	if (read(0, new, 1) == -1)
+		return (str);
+	switch (new[0]) {
+		case 67: if (*index != strlen(str)) {
+			dprintf(1, "\033[1C");
+			*index = *index + 1;
+		}
+			break;
+		case 68: if (*index != 0) {
+			dprintf(1, "\033[1D");
+			*index = *index - 1;
+		}
+		break;
+		default: break;
+	}
+	return (str);
 }

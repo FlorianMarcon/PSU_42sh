@@ -51,7 +51,7 @@ char	**create_tab_op_for_command_line(char *str);
 
 tree_t	*get_next_instruction(shell_t *shell, int fd);
 
-shell_t	*generate_shell(char **envp, shell_t *shell);
+unsigned int	generate_shell(char **envp, shell_t *shell);
 
 char	*get_path(hash_map_t *map_binary, char *cmd);
 
@@ -80,7 +80,7 @@ typedef struct built_s {
 	int (*ptr)(shell_t *, char **);
 }built_t;
 
-//int	env(shell_t *shell, char **cmd);
+bool	is_builtin(char *cmd);
 
 int	exit_program(shell_t *shell, char **cmd);
 
@@ -88,17 +88,23 @@ int	current_directory(shell_t *shell, char **cmd);
 
 //int	set_env(shell_t *shell, char **cmd);
 
-void	env(shell_t *shell, char **cmd);
+int	env(shell_t *shell, char **cmd);
 
-void	set_env(shell_t *shell, char **cmd);
+int	set_env(shell_t *shell, char **cmd);
 
-void	unset_env(shell_t *shell, char **cmd);
+int	unset_env(shell_t *shell, char **cmd);
 
-static const built_t builtin [5] = {
+int	where(shell_t *shell, char **cmd);
+
+int	which(shell_t *shell, char **cmd);
+
+static const built_t builtin[7] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
 	{"setenv", set_env},
+	{"where", where},
+	{"where", which},
 	{NULL, NULL}
 };
 // run cmd
