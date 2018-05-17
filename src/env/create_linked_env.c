@@ -29,7 +29,7 @@ void	create_node_env(env_t *env, char *data)
 	env->next = new;
 }
 
-env_t	*init_env(char **envp)
+/*env_t	*init_env(char **envp)
 {
 	env_t *env = malloc(sizeof(env_t) * 1);
 	int i = 0;
@@ -40,16 +40,29 @@ env_t	*init_env(char **envp)
 		create_node_env(env, envp[i]);
 	}
 	return (env);
+}*/
+
+linked_list_t	*init_env(char **envp)
+{
+	linked_list_t *env = malloc(sizeof(*env) * 1);
+	int i = 0;
+
+	env->data = envp[i];
+	env->next = NULL;
+	while (envp[++i] != NULL) {
+		create_node(env, envp[i]);
+	}
+	return (env);
 }
 
-char	**get_env(env_t *env)
+char	**get_env(linked_list_t *env)
 {
 	char **new = malloc(sizeof(char *) * (len_env_list(env) + 1));
 	int i = 0;
 
 	while (env->next != NULL) {
-		new[i] = env->data;
-		env = env->next;
+		new[i] = (char *)env->data;
+		env = (env->next;
 		i++;
 	}
 

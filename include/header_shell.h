@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include "hash_map.h"
 #include "tree.h"
+#include "env.h"
 
 typedef struct shell_s {
 	// var env
@@ -79,13 +80,19 @@ typedef struct built_s {
 	int (*ptr)(shell_t *, char **);
 }built_t;
 
-int	env(shell_t *shell, char **cmd);
+//int	env(shell_t *shell, char **cmd);
 
 int	exit_program(shell_t *shell, char **cmd);
 
 int	current_directory(shell_t *shell, char **cmd);
 
-int	set_env(shell_t *shell, char **cmd);
+//int	set_env(shell_t *shell, char **cmd);
+
+void	env(shell_t *shell, char **cmd);
+
+void	set_env(shell_t *shell, char **cmd);
+
+void	unset_env(shell_t *shell, char **cmd);
 
 static const built_t builtin [5] = {
 	{"env", env},

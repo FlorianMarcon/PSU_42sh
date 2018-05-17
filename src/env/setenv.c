@@ -18,7 +18,7 @@ char	*change_env(char **cmd, char *envp)
 	return (new);
 }
 
-int	create_env(char **cmd, env_t *env)
+int	create_env(char **cmd, linked_list_t *env)
 {
 	char *new = "\0";
 
@@ -31,11 +31,11 @@ int	create_env(char **cmd, env_t *env)
 	return (1);
 }
 
-int	mod_env(char **cmd, env_t *env)
+int	mod_env(char **cmd, linked_list_t *env)
 {
 	while (env != NULL) {
-		if (my_strncmp(env->data, cmd[1], my_strlen(cmd[1])) == 0) {
-			env->data = change_env(cmd, env->data);
+		if (my_strncmp((char *)env->data, cmd[1], my_strlen(cmd[1])) == 0) {
+			env->data = change_env(cmd, (char *)env->data);
 			return (1);
 		}
 		env = env->next;
@@ -43,10 +43,10 @@ int	mod_env(char **cmd, env_t *env)
 	return (0);
 }
 
-void	set_env(char **cmd, env_t *envp)
+void	set_env(shell_t *shell, char **cmd)
 {
 	if (cmd[1] == NULL)
 		return;
-	if (mod_env(cmd, envp) == 0)
-		create_env(cmd, envp);
+	if (mod_env(cmd, shell->list_env) == 0)
+		create_env(cmd, shell->list_env);
 }

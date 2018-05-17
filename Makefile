@@ -38,6 +38,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
 		$(WAY)/utilitaries/display_prompt.c	\
 		$(WAY)/utilitaries/separation_between_instruction_operator.c\
+		$(WAY)/utilitaries/get_old_pwd.c	\
 		$(WAY)/builtin/env.c			\
 		$(WAY)/builtin/set_env.c			\
 		$(WAY)/builtin/current_directory.c	\

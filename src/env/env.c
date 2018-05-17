@@ -7,8 +7,9 @@
 
 #include "env.h"
 
-void	env(env_t *envp)
+void	env(shell_t *shell, char **cmd)
 {
+	linked_list_t *envp = shell->list_env;
 	while (envp != NULL) {
 		my_putstr(envp->data);
 		my_putchar('\n');
