@@ -6,20 +6,8 @@
 */
 
 #include "my.h"
-#include "environment.h"
+#include "variable.h"
 
-variable_t	*create_variable(char **tab)
-{
-	variable_t *var;
-
-	if (tab == NULL || len_tab(tab) != 2)
-		return (NULL);
-	if ((var = malloc(sizeof(*var))) == NULL)
-		return (NULL);
-	var->name = my_strdup(tab[0]);
-	var->data = my_strdup(tab[1]);
-	return (var);
-}
 linked_list_t	*generate_list_env(char **envp)
 {
 	char **tab;
@@ -28,12 +16,12 @@ linked_list_t	*generate_list_env(char **envp)
 
 	for (unsigned int i = 0; envp[i] != NULL; i++) {
 		tab = parsing_str(envp[i], '=');
-		var = create_variable(tab);
+		var = create_variable(tab[0], tab[1]);
 		if (var != NULL) {
 			if (list == NULL)
-				list = create_list(create_variable(tab));
+				list = create_list(var);
 			else
-				create_node(list, create_variable(tab));
+				create_node(list, var);
 		}
 		free(tab);
 	}

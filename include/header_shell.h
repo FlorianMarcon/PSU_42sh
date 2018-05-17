@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include "hash_map.h"
 #include "tree.h"
+#include "variable.h"
 
 typedef struct shell_s {
 	// var env
@@ -21,6 +22,9 @@ typedef struct shell_s {
 	char **arr_env;
 	char pwd[100];
 	char *old_pwd;
+
+	// local variable
+	linked_list_t *list_local;
 
 	//binary
 	hash_map_t *binary;
@@ -38,17 +42,25 @@ typedef struct shell_s {
 
 int	minishell(shell_t *shell);
 
+// get_next_instruction
+
+tree_t	*get_next_instruction(shell_t *shell, int fd);
+
+tree_t	*parsing_command_line(char **cmd);
+
+char	*separation_between_instruction_operator(char *str);
+
+char	*parsing_change_variable(char *str, shell_t *shell);
+
+char	*replace_variable(char *str, int i, shell_t *shell);
+
 // utilitaries
 
 int	is_executable(char *path);
 
 int	search_index_operator(char **cmd);
 
-tree_t	*parsing_command_line(char **cmd);
-
 char	**create_tab_op_for_command_line(char *str);
-
-tree_t	*get_next_instruction(shell_t *shell, int fd);
 
 unsigned int	generate_shell(char **envp, shell_t *shell);
 
@@ -65,8 +77,6 @@ void	display_prompt(shell_t *shell);
 char	*new_str(char *str, int i, char *op);
 
 char	*operator_is_present(char *str);
-
-char	*separation_between_instruction_operator(char *str);
 
 int	verification_cmd(tree_t *node);
 
@@ -93,13 +103,21 @@ int	where(shell_t *shell, char **cmd);
 
 int	which(shell_t *shell, char **cmd);
 
-static const built_t builtin[7] = {
+int	set_local(shell_t *shell, char **cmd);
+
+void	add_variable_list_local(shell_t *shell, variable_t *var);
+
+int	unset_local(shell_t *shell, char **cmd);
+
+static const built_t builtin [9] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
 	{"setenv", set_env},
 	{"where", where},
-	{"where", which},
+	{"which", which},
+	{"set", set_local},
+	{"unset", unset_local},
 	{NULL, NULL}
 };
 // run cmd

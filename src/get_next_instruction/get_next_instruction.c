@@ -22,6 +22,9 @@ char	*preparsing(char *str)
 
 char	**postparsing(char **tab)
 {
+	for (unsigned int i = 0; tab[i] != NULL; i++) {
+
+	}
 	return (tab);
 }
 
@@ -38,10 +41,10 @@ tree_t	*get_next_instruction(shell_t *shell, int fd)
 		str = get_next_line(fd);
 	if (str == NULL)
 		return (NULL);
-	preparsing(str);
+	str = preparsing(str);
 	if ((tab = parsing_str(str, ' ' | '\t')) == NULL)
 		return (NULL);
-	tab = postparsing(tab);
+//	tab = postparsing(tab);
 	if ((cmd = parsing_command_line(tab)) == NULL)
 		cmd = tree_create_node(NULL, NULL, NULL);
 	free(str);
