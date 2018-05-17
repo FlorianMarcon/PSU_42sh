@@ -95,12 +95,15 @@ int	set_local(shell_t *shell, char **cmd);
 
 void	add_variable_list_local(shell_t *shell, variable_t *var);
 
-static const built_t builtin [6] = {
+int	unset_local(shell_t *shell, char **cmd);
+
+static const built_t builtin [7] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
 	{"setenv", set_env},
 	{"set", set_local},
+	{"unset", unset_local},
 	{NULL, NULL}
 };
 // run cmd

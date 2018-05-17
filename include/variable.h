@@ -28,11 +28,15 @@ linked_list_t	*generate_list_env(char **envp);
 
 // local variable
 
+variable_t	*create_variable_local(char **cmd, unsigned int *i);
+
+void	destroy_local_variable(linked_list_t **list_local, variable_t *var);
+
 //utilitaries variable
 
 variable_t	*search_variable(char *name, linked_list_t *list);
 
-variable_t	*create_variable_local(char **cmd, unsigned int *i);
+variable_t	*create_variable(char *name, char *data);
 
 void	destroy_variable(variable_t *var);
 

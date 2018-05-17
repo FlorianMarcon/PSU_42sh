@@ -21,8 +21,12 @@ int	env(shell_t *shell, char **cmd)
 	}
 	while (list != NULL) {
 		var = (variable_t *)list->data;
-		if (var != NULL)
-			my_printf("%s=%s\n", var->name, var->data);
+		if (var != NULL) {
+			my_printf("%s=", var->name);
+			if (var->data != NULL)
+				my_printf("%s", var->data);
+			my_printf("\n");
+		}
 		list = list->next;
 	}
 	return (0);

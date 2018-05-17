@@ -11,19 +11,17 @@
 
 variable_t	*create_variable_local(char **cmd, unsigned int *i)
 {
-	variable_t *var;
+	char *name = NULL;
+	char *data = NULL;
 
 	if (cmd[*i] == NULL || cmd[*i][0] < 'A'|| cmd[*i][0] > 'z')
 		return (NULL);
-	if ((var = malloc(sizeof(*var))) == NULL)
-		return (NULL);
-	var->name = strdup(cmd[*i]);
-	var->data = NULL;
+	name = cmd[*i];
 	if (cmd[*i + 1] != NULL && strcmp(cmd[*i + 1], "=") == 0) {
-		var->data = strdup(cmd[*i + 2]);
+		data = cmd[*i + 2];
 		*i = *i + 2;
 	}
-	return (var);
+	return (create_variable(name, data));
 }
 void	add_variable_list_local(shell_t *shell, variable_t *var)
 {
