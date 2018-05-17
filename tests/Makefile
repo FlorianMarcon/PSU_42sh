@@ -27,6 +27,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/tree/tree_link_node.c		\
 		$(WAY)/tree/destroy_tree.c		\
 		$(WAY)/utilitaries/is_executable.c	\
+		$(WAY)/hm_env/generate_hm_env.c	\
 		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/utilitaries/parsing_command_line.c	\
 		$(WAY)/utilitaries/get_next_instruction.c	\
@@ -37,18 +38,28 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/utilitaries/display_prompt.c	\
 		$(WAY)/utilitaries/separation_between_instruction_operator.c\
 		$(WAY)/builtin/env.c			\
+		$(WAY)/builtin/set_env.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
-		$(WAY)/builtin/set_env.c		\
+		$(WAY)/builtin/set_local.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
+		$(WAY)/run_cmd/run_and_or.c		\
 		$(WAY)/run_cmd/run_right_chevron.c	\
 		$(WAY)/run_cmd/run_left_chevron.c	\
 		$(WAY)/run_cmd/run_semicolon.c		\
 		$(WAY)/run_cmd/get_name_in_tree.c	\
+		$(WAY)/run_cmd/run_background.c		\
 		$(WAY)/execution/basic_exec.c		\
 		$(WAY)/verification_cmd/verification_cmd.c	\
-		$(WAY)/hm_env/generate_hm_env.c		\
+		$(WAY)/get_next_line_custom/gnl_custom.c	\
+		$(WAY)/get_next_line_custom/gnl_clear_nspace.c	\
+		$(WAY)/get_next_line_custom/gnl_custom_set_terminal.c	\
+		$(WAY)/get_next_line_custom/treatement/gnl_delete_char.c	\
+		$(WAY)/get_next_line_custom/treatement/gnl_special.c	\
+		$(WAY)/get_next_line_custom/treatement/gnl_arrow.c	\
+		$(WAY)/variable/search_variable.c	\
+		$(WAY)/variable/destroy_variable.c	\
 
 SRC_UT	=	hash_map/tests_utils.c			\
 		hash_map/tests_utils_second.c			\
@@ -66,6 +77,8 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		tree/tree_create_node/tests_utils.c	\
 		tree/tree_link_node/tests_utils.c	\
 		verification_cmd/tests_utils.c		\
+		variable/search_variable/tests_utils.c	\
+		builtin/set_local/tests_utils.c	\
 #		builtin/env/tests_utils.c		\
 #		hm_env/tests_utils.c			\
 

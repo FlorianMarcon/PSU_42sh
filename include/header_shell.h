@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include "hash_map.h"
 #include "tree.h"
+#include "variable.h"
 
 typedef struct shell_s {
 	// var env
@@ -21,6 +22,9 @@ typedef struct shell_s {
 	char **arr_env;
 	char pwd[100];
 	char *old_pwd;
+
+	// local variable
+	linked_list_t *list_local;
 
 	//binary
 	hash_map_t *binary;
@@ -87,11 +91,16 @@ int	current_directory(shell_t *shell, char **cmd);
 
 int	set_env(shell_t *shell, char **cmd);
 
-static const built_t builtin [5] = {
+int	set_local(shell_t *shell, char **cmd);
+
+void	add_variable_list_local(shell_t *shell, variable_t *var);
+
+static const built_t builtin [6] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
 	{"setenv", set_env},
+	{"set", set_local},
 	{NULL, NULL}
 };
 // run cmd

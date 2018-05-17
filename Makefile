@@ -42,6 +42,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/builtin/set_env.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
+		$(WAY)/builtin/set_local.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\
@@ -58,6 +59,8 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_delete_char.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_special.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_arrow.c	\
+		$(WAY)/variable/search_variable.c	\
+		$(WAY)/variable/destroy_variable.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

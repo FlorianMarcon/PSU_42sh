@@ -7,7 +7,7 @@
 
 #include "hash_map.h"
 #include "header_shell.h"
-#include "environment.h"
+#include "variable.h"
 
 int	env(shell_t *shell, char **cmd)
 {

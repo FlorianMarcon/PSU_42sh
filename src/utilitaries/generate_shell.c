@@ -11,7 +11,7 @@
 #include <unistd.h>
 #include "header_shell.h"
 #include "hash_map.h"
-#include "environment.h"
+#include "variable.h"
 #include "binary.h"
 
 shell_t	*generate_shell(char **envp, shell_t *shell)
@@ -31,5 +31,6 @@ shell_t	*generate_shell(char **envp, shell_t *shell)
 	shell->value_exit = 0;
 	shell->exit = false;
 	shell->process_back = NULL;
+	shell->list_local = NULL;
 	return (shell);
 }

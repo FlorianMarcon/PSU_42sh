@@ -6,7 +6,7 @@
 */
 
 #include "my.h"
-#include "environment.h"
+#include "variable.h"
 
 variable_t	*create_variable(char **tab)
 {

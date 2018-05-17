@@ -8,7 +8,7 @@
 #include "hash_map.h"
 #include "my.h"
 #include "header_shell.h"
-#include "environment.h"
+#include "variable.h"
 
 int	set_env(shell_t *shell, char **cmd)
 {
