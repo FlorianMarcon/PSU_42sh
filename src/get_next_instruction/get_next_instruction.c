@@ -22,6 +22,9 @@ char	*preparsing(char *str)
 
 char	**postparsing(char **tab)
 {
+	for (unsigned int i = 0; tab[i] != NULL; i++) {
+
+	}
 	return (tab);
 }
 

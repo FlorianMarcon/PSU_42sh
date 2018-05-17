@@ -36,6 +36,8 @@ void	destroy_local_variable(linked_list_t **list_local, variable_t *var);
 
 variable_t	*search_variable(char *name, linked_list_t *list);
 
+variable_t	*search_variable_matching(char *str, linked_list_t *list);
+
 variable_t	*create_variable(char *name, char *data);
 
 void	destroy_variable(variable_t *var);

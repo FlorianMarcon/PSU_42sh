@@ -42,17 +42,25 @@ typedef struct shell_s {
 
 int	minishell(shell_t *shell);
 
+// get_next_instruction
+
+tree_t	*get_next_instruction(shell_t *shell, int fd);
+
+tree_t	*parsing_command_line(char **cmd);
+
+char	*separation_between_instruction_operator(char *str);
+
+char	*parsing_change_variable(char *str, shell_t *shell);
+
+char	*replace_variable(char *str, int i, shell_t *shell);
+
 // utilitaries
 
 int	is_executable(char *path);
 
 int	search_index_operator(char **cmd);
 
-tree_t	*parsing_command_line(char **cmd);
-
 char	**create_tab_op_for_command_line(char *str);
-
-tree_t	*get_next_instruction(shell_t *shell, int fd);
 
 shell_t	*generate_shell(char **envp, shell_t *shell);
 
@@ -69,8 +77,6 @@ void	display_prompt(shell_t *shell);
 char	*new_str(char *str, int i, char *op);
 
 char	*operator_is_present(char *str);
-
-char	*separation_between_instruction_operator(char *str);
 
 int	verification_cmd(tree_t *node);
 

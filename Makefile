@@ -30,14 +30,14 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/hm_env/generate_hm_env.c	\
 		$(WAY)/utilitaries/search_index_operator.c	\
-		$(WAY)/utilitaries/parsing_command_line.c	\
-		$(WAY)/utilitaries/get_next_instruction.c	\
+		$(WAY)/get_next_instruction/parsing_command_line.c	\
+		$(WAY)/get_next_instruction/get_next_instruction.c	\
 		$(WAY)/utilitaries/generate_shell.c	\
 		$(WAY)/utilitaries/get_path.c		\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
 		$(WAY)/utilitaries/display_prompt.c	\
-		$(WAY)/utilitaries/separation_between_instruction_operator.c\
+		$(WAY)/get_next_instruction/separation_between_instruction_operator.c\
 		$(WAY)/builtin/env.c			\
 		$(WAY)/builtin/set_env.c			\
 		$(WAY)/builtin/current_directory.c	\

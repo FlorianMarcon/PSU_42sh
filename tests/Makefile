@@ -29,19 +29,21 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/hm_env/generate_hm_env.c	\
 		$(WAY)/utilitaries/search_index_operator.c	\
-		$(WAY)/utilitaries/parsing_command_line.c	\
-		$(WAY)/utilitaries/get_next_instruction.c	\
+		$(WAY)/get_next_instruction/parsing_command_line.c	\
+		$(WAY)/get_next_instruction/get_next_instruction.c	\
+		$(WAY)/get_next_instruction/replace_variable.c	\
+		$(WAY)/get_next_instruction/separation_between_instruction_operator.c\
 		$(WAY)/utilitaries/generate_shell.c	\
 		$(WAY)/utilitaries/get_path.c		\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
 		$(WAY)/utilitaries/display_prompt.c	\
-		$(WAY)/utilitaries/separation_between_instruction_operator.c\
 		$(WAY)/builtin/env.c			\
 		$(WAY)/builtin/set_env.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\
+		$(WAY)/builtin/unset_local.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\
@@ -60,6 +62,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_arrow.c	\
 		$(WAY)/variable/search_variable.c	\
 		$(WAY)/variable/destroy_variable.c	\
+		$(WAY)/variable/create_variable.c	\
 
 SRC_UT	=	hash_map/tests_utils.c			\
 		hash_map/tests_utils_second.c			\
@@ -68,17 +71,20 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		utilitaries/search_index_operator/tests_utils.c	\
 		utilitaries/my_tabdup/tests_utils.c	\
 		utilitaries/my_addtab/tests_utils.c	\
-		utilitaries/parsing_command_line/tests_utils.c	\
-		utilitaries/parsing_command_line/tests_utils_second.c	\
-		utilitaries/get_next_instruction/tests_utils.c	\
-		utilitaries/separation_between_instruction_operator/tests_utils.c\
+		get_next_instruction/parsing_command_line/tests_utils.c	\
+		get_next_instruction/parsing_command_line/tests_utils_second.c	\
+		get_next_instruction/get_next_instruction/tests_utils.c	\
+		get_next_instruction/replace_variable/tests_utils.c	\
+		get_next_instruction/separation_between_instruction_operator/tests_utils.c\
 		hm_binary/tests_utils.c			\
 		hm_binary/tests_utils_second.c		\
 		tree/tree_create_node/tests_utils.c	\
 		tree/tree_link_node/tests_utils.c	\
 		verification_cmd/tests_utils.c		\
 		variable/search_variable/tests_utils.c	\
+		variable/create_variable/tests_utils.c	\
 		builtin/set_local/tests_utils.c	\
+		builtin/unset_local/tests_utils.c	\
 #		builtin/env/tests_utils.c		\
 #		hm_env/tests_utils.c			\
 
@@ -96,11 +102,12 @@ LIB	=	-L$(WAY_LIB) -lmy
 
 NAME	=	units
 
-all:	$(OBJ) $(OBJ_UT)
+all:	$(NAME)
+
+$(NAME):$(OBJ) $(OBJ_UT)
 	make -C./$(WAY_LIB)
 	$(CC) -o $(NAME) $(OBJ) $(OBJ_UT) $(LIB) $(LDFLAGS)
 	./$(NAME)
-
 clean:
 	$(RM) $(OBJ)
 	$(RM) $(OBJ_UT)
