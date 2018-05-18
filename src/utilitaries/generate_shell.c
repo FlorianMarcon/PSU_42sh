@@ -32,5 +32,6 @@ unsigned int	generate_shell(char **envp, shell_t *shell)
 	shell->exit = false;
 	shell->process_back = NULL;
 	shell->list_local = NULL;
+	shell->list_alias = NULL;
 	return (0);
 }
