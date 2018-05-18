@@ -34,11 +34,24 @@ linked_list_t	*add_alias_in_list(linked_list_t *list, char **cmd)
 	free(data);
 	return (list);
 }
+void	display_alias(linked_list_t *list)
+{
+	variable_t *var;
+
+	while (list != NULL) {
+		var = (variable_t *)list->data;
+		if (var != NULL)
+			fprintf(stderr, "%s	%s\n", var->name, var->data);
+		list = list->next;
+	}
+}
 int	alias(shell_t *shell, char **cmd)
 {
-	(void)shell;
-	if (len_tab(cmd) <= 1)
+
+	if (len_tab(cmd) == 1) {
+		display_alias(shell->list_alias);
 		return (1);
+	}
 	if (len_tab(cmd) <= 2)
 		return (0);
 	shell->list_alias = add_alias_in_list(shell->list_alias, cmd);
