@@ -5,53 +5,68 @@
 ** create_linked_env
 */
 
-#include "env.h"
+#include "header_shell.h"
 
-int	len_env_list(env_t *list)
+char	*get_name(char *str)
 {
-	int i = 0;
+	int i = -1;
+	char *name;
 
-	while (list->next != NULL) {
-		list = list->next;
-		i++;
+	while (str[++i] != '=' && str[i] != '\0');
+	if (str[i] == '=') {
+		name = malloc(i + 1);
+		i = -1;
+		while (str[++i] != '=')
+			name[i] = str[i];
+		name[i] = '\0';
+		return (name);
 	}
-	return (i + 1);
+	return (NULL);
 }
 
-void	create_node_env(env_t *env, char *data)
+int	up_i(char *str)
 {
-	env_t *new = malloc(sizeof(env_t) * 1);
-
-	while (env->next != NULL)
-		env = env->next;
-	new->data = data;
-	new->next = NULL;
-	env->next = new;
+	int i = -1;
+	while (str[++i] != '=' && str[i] != '\0');
+	if (str[i] == '=')
+		return (i);
+	return (-1);
 }
 
-env_t	*init_env(char **envp)
+char	*get_data(char *str)
 {
-	env_t *env = malloc(sizeof(env_t) * 1);
+	int i = up_i(str);
+	int j = -1;
+	char *data;
+
+	if (i == -1)
+		return (NULL);
+	data = malloc(my_strlen(str) - i);
+	while (str[++i] != '\0')
+		data[++j] = str[i];
+	data[++j] = '\0';
+	return (data);
+}
+
+variable_t	*create_var(char *str)
+{
+	variable_t *var = malloc(sizeof(*var) * 1);
+
+	var->name = get_name(str);
+	var->data = get_data(str);
+	return (var);
+}
+
+linked_list_t	*init_env(char **envp)
+{
 	int i = 0;
+	linked_list_t *env = malloc(sizeof(*env) * 1);
 
-	env->data = envp[i];
+	if (env == NULL)
+		return (NULL);
+	env->data = create_var(envp[i]);
 	env->next = NULL;
-	while (envp[++i] != NULL) {
-		create_node_env(env, envp[i]);
-	}
+	while (envp[++i] != NULL)
+		create_node(env, create_var(envp[i]));
 	return (env);
-}
-
-char	**get_env(env_t *env)
-{
-	char **new = malloc(sizeof(char *) * (len_env_list(env) + 1));
-	int i = 0;
-
-	while (env->next != NULL) {
-		new[i] = env->data;
-		env = env->next;
-		i++;
-	}
-
-	return (new);
 }

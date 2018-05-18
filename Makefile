@@ -39,8 +39,11 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
 		$(WAY)/utilitaries/display_prompt.c	\
-		$(WAY)/builtin/env.c			\
-		$(WAY)/builtin/set_env.c			\
+		$(WAY)/utilitaries/get_old_pwd.c	\
+		$(WAY)/env/create_linked_env.c		\
+		$(WAY)/env/env.c			\
+		$(WAY)/env/setenv.c			\
+		$(WAY)/env/unsetenv.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\

@@ -82,6 +82,10 @@ int	verification_cmd(tree_t *node);
 
 int	*create_pipe(void);
 
+char	*get_old_pwd(linked_list_t *env);
+
+linked_list_t	*init_env(char **envp);
+
 // builtin
 
 typedef struct built_s {
@@ -91,13 +95,17 @@ typedef struct built_s {
 
 bool	is_builtin(char *cmd);
 
-int	env(shell_t *shell, char **cmd);
-
 int	exit_program(shell_t *shell, char **cmd);
 
 int	current_directory(shell_t *shell, char **cmd);
 
+linked_list_t	*init_env(char **envp);
+
 int	set_env(shell_t *shell, char **cmd);
+
+int	unset_env(shell_t *shell, char **cmd);
+
+int	env(shell_t *shell, char **cmd);
 
 int	where(shell_t *shell, char **cmd);
 
@@ -109,11 +117,12 @@ void	add_variable_list_local(shell_t *shell, variable_t *var);
 
 int	unset_local(shell_t *shell, char **cmd);
 
-static const built_t builtin [9] = {
+static const built_t builtin [10] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
 	{"setenv", set_env},
+	{"unsetenv", unset_env},
 	{"where", where},
 	{"which", which},
 	{"set", set_local},
