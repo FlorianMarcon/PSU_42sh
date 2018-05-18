@@ -17,6 +17,10 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/hash_map/hm_add_object.c		\
 		$(WAY)/hash_map/hm_get_object.c		\
 		$(WAY)/hash_map/hm_destroy.c		\
+		$(WAY)/env/create_linked_env.c		\
+		$(WAY)/env/env.c			\
+		$(WAY)/env/setenv.c			\
+		$(WAY)/env/unsetenv.c			\
 		$(WAY)/hm_binary/put_binary_in_hm.c	\
 		$(WAY)/hm_binary/analyse_file.c		\
 		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
@@ -38,8 +42,6 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
 		$(WAY)/utilitaries/display_prompt.c	\
-		$(WAY)/builtin/env.c			\
-		$(WAY)/builtin/set_env.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\
@@ -47,6 +49,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/builtin/where.c		\
 		$(WAY)/builtin/which.c		\
 		$(WAY)/builtin/is_builtin.c		\
+		$(WAY)/utilitaries/get_old_pwd.c	\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\
@@ -74,6 +77,8 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/variable/destroy_variable.c	\
 		$(WAY)/variable/create_variable.c	\
                 $(WAY)/get_next_line_custom/auto_complétion/auto_completion_launch.c    \
+#		$(WAY)/builtin/env.c			\
+#		$(WAY)/builtin/set_env.c			\
 
 SRC_UT	=	hash_map/tests_utils.c			\
 		hash_map/tests_utils_second.c			\
@@ -91,7 +96,6 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		hm_binary/tests_utils_second.c		\
 		tree/tree_create_node/tests_utils.c	\
 		tree/tree_link_node/tests_utils.c	\
-		verification_cmd/tests_utils.c		\
 		auto_complétion/tests_utils.c		\
 		verification/verification_and/tests_utils.c	\
 		verification/verification_background/tests_utils.c	\
