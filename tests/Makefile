@@ -57,6 +57,13 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/run_cmd/run_background.c		\
 		$(WAY)/execution/basic_exec.c		\
 		$(WAY)/verification_cmd/verification_cmd.c	\
+		$(WAY)/verification_cmd/verification_and.c		\
+		$(WAY)/verification_cmd/verification_background.c		\
+		$(WAY)/verification_cmd/verification_left_chevron.c		\
+		$(WAY)/verification_cmd/verification_or.c		\
+		$(WAY)/verification_cmd/verification_pipe.c		\
+		$(WAY)/verification_cmd/verification_right_chevron.c		\
+		$(WAY)/verification_cmd/verification_semicolon.c		\
 		$(WAY)/get_next_line_custom/gnl_custom.c	\
 		$(WAY)/get_next_line_custom/gnl_clear_nspace.c	\
 		$(WAY)/get_next_line_custom/gnl_custom_set_terminal.c	\
@@ -83,11 +90,18 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		hm_binary/tests_utils_second.c		\
 		tree/tree_create_node/tests_utils.c	\
 		tree/tree_link_node/tests_utils.c	\
-		verification_cmd/tests_utils.c		\
+		verification/verification_and/tests_utils.c	\
+		verification/verification_background/tests_utils.c	\
+		verification/verification_left_chevron/tests_utils.c	\
+		verification/verification_right_chevron/tests_utils.c	\
+		verification/verification_pipe/tests_utils.c	\
+		verification/verification_or/tests_utils.c	\
+		verification/verification_semicolon/tests_utils.c	\
 		variable/search_variable/tests_utils.c	\
 		variable/create_variable/tests_utils.c	\
 		builtin/set_local/tests_utils.c	\
 		builtin/unset_local/tests_utils.c	\
+		verification/verification_cmd/tests_utils.c		\
 #		builtin/env/tests_utils.c		\
 #		hm_env/tests_utils.c			\
 
