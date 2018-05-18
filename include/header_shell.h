@@ -161,6 +161,38 @@ static const optab_t run_op[11] = {
 
 int	run_cmd(shell_t *shell, tree_t *tree);
 
+// verification
+int	verification_background(shell_t *shell, tree_t *node);
+
+int	verification_left_chevron(shell_t *shell, tree_t *node);
+
+int	verification_double_left_chevron(shell_t *shell, tree_t *node);
+
+int	verification_right_chevron(shell_t *shell, tree_t *node);
+
+int	verification_double_right_chevron(shell_t *shell, tree_t *node);
+
+int	verification_or(shell_t *shell, tree_t *node);
+
+int	verification_pipe(shell_t *shell, tree_t *node);
+
+int	verification_and(shell_t *shell, tree_t *node);
+
+int	verification_semicolon(shell_t *shell, tree_t *node);
+
+static const optab_t verification_op[11] = {
+	{";", verification_semicolon},
+	{"||", verification_or},
+	{"|", verification_pipe},
+	{"&&", verification_and},
+	{"<<<", NULL},
+	{"<<", verification_double_left_chevron},
+	{"<", verification_left_chevron},
+	{">>", verification_double_right_chevron},
+	{">", verification_right_chevron},
+	{"&", verification_background},
+	{NULL, NULL}
+};
 // execution
 
 int	basic_exec(shell_t *shell, char **cmd);

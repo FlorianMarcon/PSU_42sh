@@ -58,6 +58,13 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/run_cmd/run_background.c		\
 		$(WAY)/execution/basic_exec.c		\
 		$(WAY)/verification_cmd/verification_cmd.c	\
+		$(WAY)/verification_cmd/verification_and.c		\
+		$(WAY)/verification_cmd/verification_background.c		\
+		$(WAY)/verification_cmd/verification_left_chevron.c		\
+		$(WAY)/verification_cmd/verification_or.c		\
+		$(WAY)/verification_cmd/verification_pipe.c		\
+		$(WAY)/verification_cmd/verification_right_chevron.c		\
+		$(WAY)/verification_cmd/verification_semicolon.c		\
 		$(WAY)/get_next_line_custom/gnl_custom.c	\
 		$(WAY)/get_next_line_custom/gnl_clear_nspace.c	\
 		$(WAY)/get_next_line_custom/gnl_custom_set_terminal.c	\

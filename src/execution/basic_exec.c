@@ -14,12 +14,15 @@
 #include "binary.h"
 #include "hash_map.h"
 
-void	get_return(shell_t *shell, int lock)
+int	get_return(int lock)
 {
+	int rep = lock;
+
 	if (WIFEXITED(lock))
-		shell->value_exit = WEXITSTATUS(lock);
+		rep = WEXITSTATUS(lock);
 	if (WIFSIGNALED(lock))
-		shell->value_exit = WSTOPSIG(lock);
+		rep = WSTOPSIG(lock);
+	return (rep);
 }
 int	basic_exec(shell_t *shell, char **cmd)
 {
@@ -37,5 +40,6 @@ int	basic_exec(shell_t *shell, char **cmd)
 		}
 	}
 	waitpid(pid, &lock, 0);
+	lock = get_return(lock);
 	return (lock);
 }
