@@ -58,6 +58,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_delete_char.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_special.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_arrow.c	\
+		$(WAY)/get_next_line_custom/auto_complétion/auto_completion_launch.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

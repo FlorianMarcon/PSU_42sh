@@ -139,4 +139,8 @@ int	run_cmd(shell_t *shell, tree_t *tree);
 
 int	basic_exec(shell_t *shell, char **cmd);
 
+// autocomplétion
+
+char	*auto_completion(char *str);
+
 #endif
