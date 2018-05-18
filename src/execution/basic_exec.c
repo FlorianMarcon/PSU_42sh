@@ -39,5 +39,3 @@ int	basic_exec(shell_t *shell, char **cmd)
 	waitpid(pid, &lock, 0);
 	return (lock);
 }
-
-// il faut gerer les signaux

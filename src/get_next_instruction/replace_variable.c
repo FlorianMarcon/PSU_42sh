@@ -28,16 +28,18 @@ char	*replace_variable(char *str, int i, shell_t *shell)
 
 	str[i] = '\0';
 	var = search_variable_matching(&str[i + 1], shell->list_local);
-	if (var == NULL)
-		search_variable_matching(&str[i + 1], shell->list_env);
+	if (var == NULL) {
+		var = search_variable_matching(&str[i + 1], shell->list_env);
+	}
 	if (var == NULL) {
 		fprintf(stderr, "%s: Undefined variable.\n", &str[i + 1]);
 		return (NULL);
 	}
-	new = strdup(str);
-	if (var->data != NULL)
-		new = strcat(new, var->data);
-	new = strcat(new, &str[i + strlen(var->name) + 1]);
+	new = my_strdup(str);
+	if (var->data != NULL) {
+		new = my_strcat(new, var->data);
+	}
+	new = my_strcat(new, &str[i + strlen(var->name) + 1]);
 	return (new);
 }
 char	*parsing_change_variable(char *str, shell_t *shell)
@@ -48,7 +50,6 @@ char	*parsing_change_variable(char *str, shell_t *shell)
 		if (str[i] == '$' && (i == 0 || str[i - 1] != '\\')) {
 			tmp = str;
 			str = replace_variable(str, i, shell);
-
 			free(tmp);
 			i = -1;
 		}
