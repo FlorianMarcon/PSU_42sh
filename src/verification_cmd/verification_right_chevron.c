@@ -15,7 +15,7 @@ int	verification_right_chevron_ambigous_output(tree_t *node)
 	if (right == NULL || right->data == NULL)
 		return (0);
 	op = operator_is_present(((char **)right->data)[0]);
-	if (my_strcmp(op, ">")  == 0 || my_strcmp(op, ">>") == 0 || my_strcmp(op, "|") == 0) {
+	if (op != NULL && (my_strcmp(op, ">")  == 0 || my_strcmp(op, ">>") == 0 || my_strcmp(op, "|") == 0)) {
 		fprintf(stderr, "%s\n", "Ambiguous output redirect.");
 		return (1);
 	}
