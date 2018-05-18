@@ -20,7 +20,7 @@ unsigned int	generate_shell(char **envp, shell_t *shell)
 	char *str = NULL;
 
 	shell->arr_env = envp;
-	shell->list_env = generate_list_env(envp);
+	shell->list_env = init_env(envp);
 	shell->env = generate_hm_env(shell->list_env);
 	getcwd(shell->pwd, sizeof(shell->pwd));
 	shell->old_pwd = NULL;
