@@ -7,15 +7,20 @@
 
 #include "env.h"
 
-int	len_env_list(env_t *list)
+void	put_in_list(char *cmd, env_t *env)
 {
-	int i = 0;
+	int n = my_strlen(cmd);
+	int f = my_str_char_len(cmd, '=');
+	int i = -1;
+	int j = -1;
 
-	while (list->next != NULL) {
-		list = list->next;
-		i++;
-	}
-	return (i + 1);
+	env->name = malloc(f);
+	while (cmd[++i] != '=')
+		env->name[i] = cmd[i];
+	env->data = malloc(n - f);
+	while (cmd[++i] != '\0')
+		env->data[++j] = cmd[i];
+	free (cmd);
 }
 
 void	create_node_env(env_t *env, char *data)
@@ -24,7 +29,7 @@ void	create_node_env(env_t *env, char *data)
 
 	while (env->next != NULL)
 		env = env->next;
-	new->data = data;
+	put_in_list(data, env);
 	new->next = NULL;
 	env->next = new;
 }
@@ -34,7 +39,7 @@ void	create_node_env(env_t *env, char *data)
 	env_t *env = malloc(sizeof(env_t) * 1);
 	int i = 0;
 
-	env->data = envp[i];
+	put_in_list(envp[i], env);
 	env->next = NULL;
 	while (envp[++i] != NULL) {
 		create_node_env(env, envp[i]);
@@ -109,10 +114,12 @@ char	**get_env(linked_list_t *env)
 	int i = 0;
 
 	while (env->next != NULL) {
-		new[i] = (char *)env->data;
-		env = (env->next;
+		new[i] = "\0";
+		new[i] = my_strcat(new[i], env->name);
+		new[i] = my_strcat(new[i], "=");
+		new[i] = my_strcat(new[i], env->data);
+		env = env->next;
 		i++;
 	}
-
 	return (new);
 }
