@@ -5,22 +5,27 @@
 ** unsetenv
 */
 
-#include "env.h"
+#include "header_shell.h"
 
-void	unset_env(char **cmd, env_t *env)
+void	delete(linked_list_t *list, char *cmd)
 {
-	env_t *to_unset;
-
-	if (cmd[1] == NULL)
-		return;
-	while (env->next != NULL) {
-		if (my_strncmp(env->next->data, cmd[1],
-						my_strlen(cmd[1])) == 0) {
-			to_unset = env->next;
-			env->next = env->next->next;
-			return;
-		}
-		env = env->next;
+	while (my_strcmp(((variable_t *)list->next->data)->name, cmd) != 0
+							&& list->next != NULL)
+		list = list->next;
+	if (list->next != NULL) {
+		free(((variable_t *)list->next->data)->name);
+		free(((variable_t *)list->next->data)->data);
+		free(list->next->data);
+		delete_node(list);
 	}
-	free (to_unset);
+}
+
+int	unset_env(shell_t *shell, char **cmd)
+{
+	int i = 0;
+	if (cmd[1] == NULL)
+		return (1);
+	while (cmd[++i] != NULL)
+		delete(shell->list_env, cmd[i]);
+	return (0);
 }
