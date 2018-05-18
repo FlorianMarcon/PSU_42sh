@@ -11,8 +11,10 @@
 
 int	exit_program(shell_t *shell, char **cmd)
 {
-	if (len_tab(cmd) > 2)
+	if (len_tab(cmd) > 2) {
+		fprintf(stderr, "%s\n", "exit: Expression Syntax.");
 		return (1);
+	}
 	shell->exit = true;
 	if (len_tab(cmd) == 2) {
 		if (my_str_isnum(cmd[1]))

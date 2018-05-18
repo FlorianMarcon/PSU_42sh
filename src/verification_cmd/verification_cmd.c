@@ -14,14 +14,11 @@ int	verif_error(tree_t *tree)
 	char **cmd = (char **)tree->data;
 	char *op = operator_is_present(cmd[0]);
 
-	if (my_strcmp(op, ";") == 0 || my_strcmp(op, "&") == 0)
-		return (0);
-	else {
-		if (tree->left == NULL || tree->right == NULL) {
-			return (1);
-		} else
-			return (0);
+	for (unsigned int i = 0; verification_op[i].label != NULL; i++) {
+		if (my_strcmp(op, verification_op[i].label) == 0)
+			return (verification_op[i].ptr(NULL, tree));
 	}
+	return (0);
 }
 int	verification_cmd(tree_t *node)
 {

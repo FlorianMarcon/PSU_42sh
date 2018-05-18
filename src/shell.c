@@ -21,6 +21,8 @@ int	minishell(shell_t *shell)
 		} else {
 			if (cmd->data != NULL && verification_cmd(cmd) == 0)
 				run_cmd(shell, cmd);
+			else
+				shell->value_exit = 1;
 			destroy_tree(cmd);
 		}
 	}

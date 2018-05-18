@@ -9,6 +9,11 @@
 
 int	run_and(shell_t *shell, tree_t *tree)
 {
+	if (tree->right == NULL) {
+		fprintf(stderr, "Invalid null command.\n");
+		shell->value_exit = 1;
+		return (1);
+	}
 	run_cmd(shell, tree->left);
 	if (shell->value_exit == 0)
 		run_cmd(shell, tree->right);
@@ -16,6 +21,11 @@ int	run_and(shell_t *shell, tree_t *tree)
 }
 int	run_or(shell_t *shell, tree_t *tree)
 {
+	if (tree->right == NULL) {
+		fprintf(stderr, "Invalid null command.\n");
+		shell->value_exit = 1;
+		return (1);
+	}
 	run_cmd(shell, tree->left);
 	if (shell->value_exit != 0)
 		run_cmd(shell, tree->right);

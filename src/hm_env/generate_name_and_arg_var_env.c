@@ -5,7 +5,7 @@
 ** generate_var_env
 */
 
-#include "environment.h"
+#include "variable.h"
 #include "my.h"
 
 char	*generate_name_var_env(char *str)

@@ -37,6 +37,14 @@ int	run_operator(shell_t *shell, tree_t *tree, char **cmd)
 	return (0);
 }
 
+char	**preexecution(char **tab, shell_t *shell)
+{
+	for (unsigned int i = 0; tab[i] != NULL; i++) {
+		tab[i] = parsing_change_variable(tab[i], shell);
+	}
+	return (tab);
+}
+
 int	run_cmd(shell_t *shell, tree_t *tree)
 {
 	char **tab;
@@ -46,6 +54,7 @@ int	run_cmd(shell_t *shell, tree_t *tree)
 	if (is_operator(tab[0])) {
 		run_operator(shell, tree, tab);
 	} else {
+		tab = preexecution(tab, shell);
 		if (search_and_run_builtin(shell, tab))
 			shell->value_exit = basic_exec(shell, tab);
 	}
