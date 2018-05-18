@@ -44,7 +44,7 @@ tree_t	*get_next_instruction(shell_t *shell, int fd)
 	str = preparsing(str);
 	if ((tab = parsing_str(str, ' ' | '\t')) == NULL)
 		return (NULL);
-//	tab = postparsing(tab);
+	tab = postparsing(tab);
 	if ((cmd = parsing_command_line(tab)) == NULL)
 		cmd = tree_create_node(NULL, NULL, NULL);
 	free(str);
