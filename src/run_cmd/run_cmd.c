@@ -42,6 +42,7 @@ char	**preexecution(char **tab, shell_t *shell)
 	for (unsigned int i = 0; tab[i] != NULL; i++) {
 		tab[i] = parsing_change_variable(tab[i], shell);
 	}
+	tab = parsing_change_alias(shell->list_alias, tab);
 	return (tab);
 }
 
@@ -55,6 +56,7 @@ int	run_cmd(shell_t *shell, tree_t *tree)
 		run_operator(shell, tree, tab);
 	} else {
 		tab = preexecution(tab, shell);
+		tree->data = tab;
 		if (search_and_run_builtin(shell, tab))
 			shell->value_exit = basic_exec(shell, tab);
 	}

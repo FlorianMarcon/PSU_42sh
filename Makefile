@@ -27,17 +27,20 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/tree/tree_create_node.c		\
 		$(WAY)/tree/tree_link_node.c		\
 		$(WAY)/tree/destroy_tree.c		\
-		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/hm_env/generate_hm_env.c	\
-		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/get_next_instruction/parsing_command_line.c	\
 		$(WAY)/get_next_instruction/get_next_instruction.c	\
-		$(WAY)/get_next_instruction/replace_variable.c	\
+		$(WAY)/get_next_instruction/parsing_change_variable.c	\
+		$(WAY)/get_next_instruction/parsing_change_alias.c	\
 		$(WAY)/get_next_instruction/separation_between_instruction_operator.c\
 		$(WAY)/utilitaries/generate_shell.c	\
+		$(WAY)/utilitaries/search_index_operator.c	\
+		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/utilitaries/get_path.c		\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
+		$(WAY)/utilitaries/my_tabcat.c		\
+		$(WAY)/utilitaries/my_destroy_tab.c	\
 		$(WAY)/utilitaries/display_prompt.c	\
 		$(WAY)/builtin/env.c			\
 		$(WAY)/builtin/set_env.c			\
@@ -48,6 +51,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/builtin/where.c		\
 		$(WAY)/builtin/which.c		\
 		$(WAY)/builtin/is_builtin.c		\
+		$(WAY)/builtin/alias.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\

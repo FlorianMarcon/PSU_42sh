@@ -30,13 +30,16 @@ typedef struct shell_s {
 	hash_map_t *binary;
 	linked_list_t *process_back;
 
-	//
+	// exit
 	bool exit;
 	int value_exit;
 
 	//termios
 	struct termios term;
 	struct termios old_term;
+
+	//allias
+	linked_list_t *list_alias;
 
 }shell_t;
 
@@ -51,6 +54,8 @@ tree_t	*parsing_command_line(char **cmd);
 char	*separation_between_instruction_operator(char *str);
 
 char	*parsing_change_variable(char *str, shell_t *shell);
+
+char	**parsing_change_alias(linked_list_t *list, char **cmd);
 
 char	*replace_variable(char *str, int i, shell_t *shell);
 
@@ -69,6 +74,10 @@ char	*get_path(hash_map_t *map_binary, char *cmd);
 int	is_operator(char *str);
 
 char	**my_addtab(char **tab, char *str);
+
+char	**my_tabcat(char **fir, char **sec);
+
+void	my_destroy_tab(char **tab);
 
 char	*get_name_in_tree(tree_t *tree);
 
@@ -109,7 +118,9 @@ void	add_variable_list_local(shell_t *shell, variable_t *var);
 
 int	unset_local(shell_t *shell, char **cmd);
 
-static const built_t builtin [9] = {
+int	alias(shell_t *shell, char **cmd);
+
+static const built_t builtin [10] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
@@ -118,6 +129,7 @@ static const built_t builtin [9] = {
 	{"which", which},
 	{"set", set_local},
 	{"unset", unset_local},
+	{"alias", alias},
 	{NULL, NULL}
 };
 // run cmd
