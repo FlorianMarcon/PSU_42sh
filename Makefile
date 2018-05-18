@@ -39,6 +39,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
 		$(WAY)/utilitaries/display_prompt.c	\
+		$(WAY)/utilitaries/get_old_pwd.c	\
 		$(WAY)/env/create_linked_env.c		\
 		$(WAY)/env/env.c			\
 		$(WAY)/env/setenv.c			\

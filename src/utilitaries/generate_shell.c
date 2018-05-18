@@ -23,7 +23,7 @@ unsigned int	generate_shell(char **envp, shell_t *shell)
 	shell->list_env = init_env(envp);
 	shell->env = generate_hm_env(shell->list_env);
 	getcwd(shell->pwd, sizeof(shell->pwd));
-	shell->old_pwd = NULL;
+	shell->old_pwd = get_old_pwd(shell->list_env);
 	obj = hm_get_object(shell->env, "PATH");
 	if (obj != NULL)
 		str = (char *)obj->data;

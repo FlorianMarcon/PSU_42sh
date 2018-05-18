@@ -82,6 +82,10 @@ int	verification_cmd(tree_t *node);
 
 int	*create_pipe(void);
 
+char	*get_old_pwd(linked_list_t *env);
+
+linked_list_t	*init_env(char **envp);
+
 // builtin
 
 typedef struct built_s {
