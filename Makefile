@@ -42,7 +42,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/builtin/is_builtin.c		\
 		$(WAY)/get_next_instruction/separation_between_instruction_operator.c\
 		$(WAY)/builtin/env.c			\
-		$(WAY)/builtin/set_env.c			\
+		$(WAY)/builtin/create_linked_env.c	\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\

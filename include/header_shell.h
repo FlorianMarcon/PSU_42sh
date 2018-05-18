@@ -83,6 +83,8 @@ int	verification_cmd(tree_t *node);
 
 int	*create_pipe(void);
 
+linked_list_t	*init_env(char **envp);
+
 // builtin
 
 typedef struct built_s {
