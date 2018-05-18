@@ -172,9 +172,13 @@ int	verification_right_chevron(shell_t *shell, tree_t *node);
 
 int	verification_double_right_chevron(shell_t *shell, tree_t *node);
 
+int	verification_right_chevron_ambigous_output(tree_t *node);
+
 int	verification_or(shell_t *shell, tree_t *node);
 
 int	verification_pipe(shell_t *shell, tree_t *node);
+
+int	verification_pipe_ambigous_redirection(tree_t *node);
 
 int	verification_and(shell_t *shell, tree_t *node);
 
