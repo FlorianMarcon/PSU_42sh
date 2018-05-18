@@ -101,7 +101,7 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		variable/create_variable/tests_utils.c	\
 		builtin/set_local/tests_utils.c	\
 		builtin/unset_local/tests_utils.c	\
-#		verification/verification_cmd/tests_utils.c		\
+		verification/verification_cmd/tests_utils.c		\
 #		builtin/env/tests_utils.c		\
 #		hm_env/tests_utils.c			\
 
