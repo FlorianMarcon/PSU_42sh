@@ -42,9 +42,9 @@ void	display_alias(linked_list_t *list)
 	while (list != NULL) {
 		var = (variable_t *)list->data;
 		if (var != NULL && my_char_ispresent(var->data, ' '))
-			fprintf(stderr, "%s	(%s)\n", var->name, var->data);
+			dprintf(1, "%s	(%s)\n", var->name, var->data);
 		else if (var != NULL)
-			fprintf(stderr, "%s	%s\n", var->name, var->data);
+			dprintf(1, "%s	%s\n", var->name, var->data);
 		list = list->next;
 	}
 }
