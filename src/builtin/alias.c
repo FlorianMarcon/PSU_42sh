@@ -41,7 +41,9 @@ void	display_alias(linked_list_t *list)
 	sort_list(list);
 	while (list != NULL) {
 		var = (variable_t *)list->data;
-		if (var != NULL)
+		if (var != NULL && my_char_ispresent(var->data, ' '))
+			fprintf(stderr, "%s	(%s)\n", var->name, var->data);
+		else if (var != NULL)
 			fprintf(stderr, "%s	%s\n", var->name, var->data);
 		list = list->next;
 	}

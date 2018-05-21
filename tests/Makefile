@@ -46,6 +46,8 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/utilitaries/my_tabcat.c		\
 		$(WAY)/utilitaries/display_prompt.c	\
 		$(WAY)/utilitaries/sort_list.c	\
+		$(WAY)/utilitaries/my_char_ispresent.c	\
+		$(WAY)/utilitaries/get_old_pwd.c	\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\
@@ -54,7 +56,6 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/builtin/which.c		\
 		$(WAY)/builtin/alias.c		\
 		$(WAY)/builtin/is_builtin.c		\
-		$(WAY)/utilitaries/get_old_pwd.c	\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\
@@ -94,6 +95,7 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		utilitaries/my_addtab/tests_utils.c	\
 		utilitaries/my_tabcat/tests_utils.c	\
 		utilitaries/sort_list/tests_utils.c	\
+		utilitaries/my_char_ispresent/tests_utils.c	\
 		get_next_instruction/parsing_command_line/tests_utils.c	\
 		get_next_instruction/parsing_command_line/tests_utils_second.c	\
 		get_next_instruction/get_next_instruction/tests_utils.c	\

@@ -97,6 +97,8 @@ linked_list_t	*init_env(char **envp);
 
 void	sort_list(linked_list_t *list);
 
+int	my_char_ispresent(char *str, char label);
+
 // builtin
 
 typedef struct built_s {
