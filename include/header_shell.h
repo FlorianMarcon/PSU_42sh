@@ -95,6 +95,8 @@ char	*get_old_pwd(linked_list_t *env);
 
 linked_list_t	*init_env(char **envp);
 
+void	sort_list(linked_list_t *list);
+
 // builtin
 
 typedef struct built_s {

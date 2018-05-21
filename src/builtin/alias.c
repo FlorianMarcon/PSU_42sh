@@ -38,6 +38,7 @@ void	display_alias(linked_list_t *list)
 {
 	variable_t *var;
 
+	sort_list(list);
 	while (list != NULL) {
 		var = (variable_t *)list->data;
 		if (var != NULL)
