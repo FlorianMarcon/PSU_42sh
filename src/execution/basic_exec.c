@@ -18,10 +18,11 @@ int	get_return(int lock)
 {
 	int rep = lock;
 
-	if (WIFEXITED(lock))
+	if (WIFEXITED(lock)) {
 		rep = WEXITSTATUS(lock);
-	if (WIFSIGNALED(lock))
-		rep = WSTOPSIG(lock);
+	}
+	else
+		rep = lock;
 	return (rep);
 }
 int	basic_exec(shell_t *shell, char **cmd)
