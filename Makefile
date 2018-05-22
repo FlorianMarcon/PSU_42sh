@@ -29,7 +29,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/tree/destroy_tree.c		\
 		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/hm_env/generate_hm_env.c	\
-		$(WAY)/utilitaries/len.c
+		$(WAY)/utilitaries/len.c	\
 		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/get_next_instruction/parsing_command_line.c	\
 		$(WAY)/get_next_instruction/get_next_instruction.c	\
