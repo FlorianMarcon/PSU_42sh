@@ -10,17 +10,12 @@
 int	create_env(char **cmd, linked_list_t *env)
 {
 	variable_t *var = malloc(sizeof(*var) * 1);
-	linked_list_t *new = malloc(sizeof(*new) * 1);
 
 	if (var == NULL)
 		return (1);
 	var->name = cmd[1];
 	var->data = cmd[2];
-	new->data = var;
-	new->next = NULL;
-	while (env->next->next != NULL)
-		env = env->next;
-	add_node(env, new);
+	create_node(env, var);
 	return (0);
 }
 

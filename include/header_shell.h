@@ -99,6 +99,8 @@ void	sort_list(linked_list_t *list);
 
 int	my_char_ispresent(char *str, char label);
 
+void	sync_pwd(shell_t *shell);
+
 // builtin
 
 typedef struct built_s {

@@ -50,6 +50,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/env/env.c			\
 		$(WAY)/env/setenv.c			\
 		$(WAY)/env/unsetenv.c			\
+		$(WAY)/env/sync_pwd.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\

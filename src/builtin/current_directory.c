@@ -29,6 +29,7 @@ int	current_directory(shell_t *shell, char **cmd)
 		} else
 			fprintf(stderr,
 			"%s: No such file or directory.\n", cmd[1]);
+		sync_pwd(shell);
 	}
 	return (0);
 }
