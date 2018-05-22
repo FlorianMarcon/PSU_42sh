@@ -36,7 +36,6 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/get_next_instruction/parsing_change_alias.c	\
 		$(WAY)/get_next_instruction/separation_between_instruction_operator.c\
 		$(WAY)/utilitaries/generate_shell.c	\
-		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/utilitaries/get_path.c		\
 		$(WAY)/utilitaries/is_operator.c	\

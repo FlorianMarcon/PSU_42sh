@@ -7,7 +7,7 @@
 
 #include "header_shell.h"
 
-int	len_env_list(env_t *list)
+int	len_env_list(linked_list_t *list)
 {
 	int i = 0;
 
@@ -18,7 +18,7 @@ int	len_env_list(env_t *list)
 	return (i + 1);
 }
 
-int	my_str_char_len(char *cmd, char sep)
+int	my_str_char_len(char *str, char sep)
 {
 	int i = -1;
 
