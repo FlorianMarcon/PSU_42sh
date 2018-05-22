@@ -13,13 +13,12 @@
 #include <unistd.h>
 #include "hash_map.h"
 #include "tree.h"
-#include "env.h"
 #include "variable.h"
 
 typedef struct shell_s {
 	// var env
 	hash_map_t *env;
-	env_t *env;
+	linked_list_t *list_env;
 	char **arr_env;
 	char pwd[100];
 	char *old_pwd;
@@ -31,13 +30,16 @@ typedef struct shell_s {
 	hash_map_t *binary;
 	linked_list_t *process_back;
 
-	//
+	// exit
 	bool exit;
 	int value_exit;
 
 	//termios
 	struct termios term;
 	struct termios old_term;
+
+	//allias
+	linked_list_t *list_alias;
 
 }shell_t;
 
@@ -52,6 +54,8 @@ tree_t	*parsing_command_line(char **cmd);
 char	*separation_between_instruction_operator(char *str);
 
 char	*parsing_change_variable(char *str, shell_t *shell);
+
+char	**parsing_change_alias(linked_list_t *list, char **cmd);
 
 char	*replace_variable(char *str, int i, shell_t *shell);
 
@@ -71,6 +75,10 @@ int	is_operator(char *str);
 
 char	**my_addtab(char **tab, char *str);
 
+char	**my_tabcat(char **fir, char **sec);
+
+void	my_destroy_tab(char **tab);
+
 char	*get_name_in_tree(tree_t *tree);
 
 void	display_prompt(shell_t *shell);
@@ -83,7 +91,13 @@ int	verification_cmd(tree_t *node);
 
 int	*create_pipe(void);
 
+char	*get_old_pwd(linked_list_t *env);
+
 linked_list_t	*init_env(char **envp);
+
+void	sort_list(linked_list_t *list);
+
+int	my_char_ispresent(char *str, char label);
 
 // builtin
 
@@ -98,13 +112,13 @@ int	exit_program(shell_t *shell, char **cmd);
 
 int	current_directory(shell_t *shell, char **cmd);
 
-//int	set_env(shell_t *shell, char **cmd);
-
-int	env(shell_t *shell, char **cmd);
+linked_list_t	*init_env(char **envp);
 
 int	set_env(shell_t *shell, char **cmd);
 
 int	unset_env(shell_t *shell, char **cmd);
+
+int	env(shell_t *shell, char **cmd);
 
 int	where(shell_t *shell, char **cmd);
 
@@ -116,15 +130,19 @@ void	add_variable_list_local(shell_t *shell, variable_t *var);
 
 int	unset_local(shell_t *shell, char **cmd);
 
-static const built_t builtin [9] = {
+int	alias(shell_t *shell, char **cmd);
+
+static const built_t builtin [11] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
 	{"setenv", set_env},
+	{"unsetenv", unset_env},
 	{"where", where},
 	{"which", which},
 	{"set", set_local},
 	{"unset", unset_local},
+	{"alias", alias},
 	{NULL, NULL}
 };
 // run cmd
@@ -179,9 +197,13 @@ int	verification_right_chevron(shell_t *shell, tree_t *node);
 
 int	verification_double_right_chevron(shell_t *shell, tree_t *node);
 
+int	verification_right_chevron_ambigous_output(tree_t *node);
+
 int	verification_or(shell_t *shell, tree_t *node);
 
 int	verification_pipe(shell_t *shell, tree_t *node);
+
+int	verification_pipe_ambigous_redirection(tree_t *node);
 
 int	verification_and(shell_t *shell, tree_t *node);
 
@@ -203,5 +225,9 @@ static const optab_t verification_op[11] = {
 // execution
 
 int	basic_exec(shell_t *shell, char **cmd);
+
+// autocomplétion
+
+char	*auto_completion(char *str);
 
 #endif

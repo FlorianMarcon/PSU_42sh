@@ -27,25 +27,30 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/tree/tree_create_node.c		\
 		$(WAY)/tree/tree_link_node.c		\
 		$(WAY)/tree/destroy_tree.c		\
-		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/hm_env/generate_hm_env.c	\
 		$(WAY)/utilitaries/len.c	\
 		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/get_next_instruction/parsing_command_line.c	\
 		$(WAY)/get_next_instruction/get_next_instruction.c	\
-		$(WAY)/get_next_instruction/replace_variable.c	\
+		$(WAY)/get_next_instruction/parsing_change_variable.c	\
+		$(WAY)/get_next_instruction/parsing_change_alias.c	\
 		$(WAY)/get_next_instruction/separation_between_instruction_operator.c\
 		$(WAY)/utilitaries/generate_shell.c	\
+		$(WAY)/utilitaries/search_index_operator.c	\
+		$(WAY)/utilitaries/is_executable.c	\
 		$(WAY)/utilitaries/get_path.c		\
 		$(WAY)/utilitaries/is_operator.c	\
 		$(WAY)/utilitaries/my_addtab.c		\
+		$(WAY)/utilitaries/my_tabcat.c		\
+		$(WAY)/utilitaries/my_destroy_tab.c	\
 		$(WAY)/utilitaries/display_prompt.c	\
-		$(WAY)/utilitaries/separation_between_instruction_operator.c\
 		$(WAY)/utilitaries/get_old_pwd.c	\
-		$(WAY)/builtin/is_builtin.c		\
-		$(WAY)/get_next_instruction/separation_between_instruction_operator.c\
-		$(WAY)/builtin/env.c			\
-		$(WAY)/builtin/create_linked_env.c	\
+		$(WAY)/utilitaries/sort_list.c	\
+		$(WAY)/utilitaries/my_char_ispresent.c	\
+		$(WAY)/env/create_linked_env.c		\
+		$(WAY)/env/env.c			\
+		$(WAY)/env/setenv.c			\
+		$(WAY)/env/unsetenv.c			\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\
@@ -53,6 +58,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/builtin/where.c		\
 		$(WAY)/builtin/which.c		\
 		$(WAY)/builtin/is_builtin.c		\
+		$(WAY)/builtin/alias.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\
@@ -76,6 +82,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_delete_char.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_special.c	\
 		$(WAY)/get_next_line_custom/treatement/gnl_arrow.c	\
+		$(WAY)/get_next_line_custom/auto_complétion/auto_completion_launch.c	\
 		$(WAY)/variable/search_variable.c	\
 		$(WAY)/variable/destroy_variable.c	\
 		$(WAY)/variable/create_variable.c	\

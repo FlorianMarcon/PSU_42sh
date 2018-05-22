@@ -9,21 +9,23 @@
 
 void	delete(linked_list_t *list, char *cmd)
 {
-	while (my_strcmp(list->next->data->name, cmd) != 0 && list->next != NULL)
+	while (my_strcmp(((variable_t *)list->next->data)->name, cmd) != 0
+							&& list->next != NULL)
 		list = list->next;
 	if (list->next != NULL) {
-		free(list->data->name);
-		free(list->data->data);
-		free(list->data);
+		free(((variable_t *)list->next->data)->name);
+		free(((variable_t *)list->next->data)->data);
+		free(list->next->data);
 		delete_node(list);
 	}
 }
 
-void	unset_env(shell_t *shell, char **cmd)
+int	unset_env(shell_t *shell, char **cmd)
 {
-
+	int i = 0;
 	if (cmd[1] == NULL)
-		return;
+		return (1);
 	while (cmd[++i] != NULL)
 		delete(shell->list_env, cmd[i]);
+	return (0);
 }
