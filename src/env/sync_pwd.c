@@ -23,6 +23,7 @@ void	sync_value(linked_list_t *list, char *new, char *to_find)
 }
 void	sync_pwd(shell_t *shell)
 {
-	sync_value(shell->list_env, shell->old_pwd, "OLDPWD");
-	sync_value(shell->list_env, shell->pwd, "PWD");
+	sync_value(shell->list_env, strdup(shell->old_pwd), "OLDPWD");
+	sync_value(shell->list_env, strdup(shell->pwd), "PWD");
+	//printf("%s\n", )
 }
