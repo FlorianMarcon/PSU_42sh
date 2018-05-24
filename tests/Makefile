@@ -25,12 +25,9 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/hm_binary/analyse_file.c		\
 		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
 		$(WAY)/hm_binary/generate_hm_binary.c	\
-		$(WAY)/hm_env/generate_name_and_arg_var_env.c	\
-		$(WAY)/hm_env/generate_list_env.c	\
 		$(WAY)/tree/tree_create_node.c		\
 		$(WAY)/tree/tree_link_node.c		\
 		$(WAY)/tree/destroy_tree.c		\
-		$(WAY)/hm_env/generate_hm_env.c	\
 		$(WAY)/get_next_instruction/parsing_command_line.c	\
 		$(WAY)/get_next_instruction/get_next_instruction.c	\
 		$(WAY)/get_next_instruction/parsing_change_variable.c	\
@@ -82,9 +79,8 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/variable/search_variable.c	\
 		$(WAY)/variable/destroy_variable.c	\
 		$(WAY)/variable/create_variable.c	\
+		$(WAY)/variable/add_data_in_list.c	\
                 $(WAY)/get_next_line_custom/auto_complétion/auto_completion_launch.c    \
-#		$(WAY)/builtin/env.c			\
-#		$(WAY)/builtin/set_env.c			\
 
 SRC_UT	=	hash_map/tests_utils.c			\
 		hash_map/tests_utils_second.c			\
@@ -115,11 +111,10 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		verification/verification_semicolon/tests_utils.c	\
 		variable/search_variable/tests_utils.c	\
 		variable/create_variable/tests_utils.c	\
+		variable/add_data_in_list/tests_utils.c	\
 		builtin/set_local/tests_utils.c	\
 		builtin/unset_local/tests_utils.c	\
 		verification/verification_cmd/tests_utils.c		\
-#		builtin/env/tests_utils.c		\
-#		hm_env/tests_utils.c			\
 
 OBJ	=	$(SRC:.c=.o)
 

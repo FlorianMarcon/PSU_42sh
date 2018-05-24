@@ -83,6 +83,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/variable/search_variable.c	\
 		$(WAY)/variable/destroy_variable.c	\
 		$(WAY)/variable/create_variable.c	\
+		$(WAY)/variable/add_data_in_list.c	\
 
 OBJ	=	$(SRC:.c=.o)
 
