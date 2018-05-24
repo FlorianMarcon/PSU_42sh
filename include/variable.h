@@ -32,4 +32,6 @@ variable_t	*create_variable(char *name, char *data);
 
 void	destroy_variable(variable_t *var);
 
+void	add_data_in_list(char *name, char *data, linked_list_t *list);
+
 #endif
