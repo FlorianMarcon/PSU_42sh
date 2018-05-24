@@ -32,7 +32,7 @@ linked_list_t	*init_env(char **envp)
 	if (envp == NULL)
 		return (NULL);
 	for (unsigned int i = 0; envp[i] != NULL; i++) {
-		var = create_variable_for_env(envp[i]);
+		var = create_variable_for_env(strdup(envp[i]));
 		if (var != NULL && list == NULL)
 			list = create_list(var);
 		else if (var != NULL)
