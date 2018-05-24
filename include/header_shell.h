@@ -133,7 +133,11 @@ int	unset_local(shell_t *shell, char **cmd);
 
 int	alias(shell_t *shell, char **cmd);
 
-static const built_t builtin [11] = {
+int	fg_builtin(shell_t *shell, char **cmd);
+
+int	repeat(shell_t *shell, char **cmd);
+
+static const built_t builtin [13] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
@@ -144,6 +148,8 @@ static const built_t builtin [11] = {
 	{"set", set_local},
 	{"unset", unset_local},
 	{"alias", alias},
+	{"fg", fg_builtin},
+	{"repeat", repeat},
 	{NULL, NULL}
 };
 // run cmd

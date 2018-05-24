@@ -57,6 +57,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/builtin/is_builtin.c		\
 		$(WAY)/builtin/alias.c		\
 		$(WAY)/builtin/fg_builtin.c		\
+		$(WAY)/builtin/repeat.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\

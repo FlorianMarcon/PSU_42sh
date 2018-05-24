@@ -9,7 +9,12 @@
 
 int	fg_builtin(shell_t *shell, char **cmd)
 {
-	(void)shell;
+	linked_list_t *list = shell->process_back;
+
 	(void)cmd;
+	if (list == NULL) {
+		fprintf(stderr, "fg: No current job.\n");
+		return (1);
+	}
 	return (0);
 }
