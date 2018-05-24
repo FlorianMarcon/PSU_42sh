@@ -1,4 +1,4 @@
-##
+#
 ## EPITECH PROJECT, 2018
 ## Makefile
 ## File description:
@@ -22,12 +22,9 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/hm_binary/analyse_file.c		\
 		$(WAY)/hm_binary/hm_binary_list_all_file.c	\
 		$(WAY)/hm_binary/generate_hm_binary.c	\
-		$(WAY)/hm_env/generate_name_and_arg_var_env.c	\
-		$(WAY)/hm_env/generate_list_env.c	\
 		$(WAY)/tree/tree_create_node.c		\
 		$(WAY)/tree/tree_link_node.c		\
 		$(WAY)/tree/destroy_tree.c		\
-		$(WAY)/hm_env/generate_hm_env.c	\
 		$(WAY)/utilitaries/len.c	\
 		$(WAY)/utilitaries/search_index_operator.c	\
 		$(WAY)/get_next_instruction/parsing_command_line.c	\

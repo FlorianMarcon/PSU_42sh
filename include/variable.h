@@ -16,16 +16,6 @@ typedef struct variable {
 	char *data;
 }variable_t;
 
-// generate_hm_env
-
-linked_list_t	*generate_arg_var_env(char *arg);
-
-char	*generate_name_var_env(char *str);
-
-hash_map_t	*generate_hm_env(linked_list_t *list);
-
-linked_list_t	*generate_list_env(char **envp);
-
 // local variable
 
 variable_t	*create_variable_local(char **cmd, unsigned int *i);
