@@ -100,6 +100,8 @@ int	my_char_ispresent(char *str, char label);
 
 void	sync_pwd(shell_t *shell);
 
+char	**get_env(linked_list_t *env);
+
 // builtin
 
 typedef struct built_s {
