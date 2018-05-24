@@ -33,11 +33,6 @@ int	mod_env(char **cmd, linked_list_t *env)
 
 int	set_env(shell_t *shell, char **cmd)
 {
-	char **envp = get_env(shell->list_env);
-	int i = -1;
-	while (envp[++i] != NULL) {
-		printf("%s\n", envp[i]);
-	}
 	if (cmd[1] == NULL)
 		return (1);
 	if (mod_env(cmd, shell->list_env) == 1)
