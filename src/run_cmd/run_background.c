@@ -5,9 +5,21 @@
 ** run_background
 */
 
+#include <string.h>
 #include <unistd.h>
 #include "header_shell.h"
 
+void	add_processus_list_back(shell_t *shell, pid_t *pid, char **cmd)
+{
+	char *str = cmd[0];
+
+	for (unsigned int i = 1; cmd[i] != NULL; i++)
+		str = strcat(str, cmd[i]);
+	if (shell->process_back == NULL)
+		shell->process_back = create_list(create_variable(str, pid));
+	else
+		add_data_in_list(str, pid, shell->process_back);
+}
 int	run_background(shell_t *shell, tree_t *node)
 {
 	pid_t *pid = malloc(sizeof(*pid));
@@ -16,7 +28,7 @@ int	run_background(shell_t *shell, tree_t *node)
 
 	if (node->left == NULL || (cmd = (char **)node->left->data) == NULL)
 		return (1);
-	if ((path = get_path(shell->binary, cmd[0])) == NULL)
+	if ((path = get_path(shell->binary, cmd[0])) == NULL || pid == NULL)
 		return (1);
 	*pid = fork();
 	if (*pid == 0) {
@@ -25,9 +37,6 @@ int	run_background(shell_t *shell, tree_t *node)
 			exit (1);
 		}
 	}
-	if (shell->process_back == NULL)
-		shell->process_back = create_list(pid);
-	else
-		create_node(shell->process_back, pid);
+	add_processus_list_back(shell, pid, cmd);
 	return (0);
 }

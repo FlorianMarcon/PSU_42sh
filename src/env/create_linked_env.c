@@ -19,7 +19,7 @@ variable_t	*create_variable_for_env(char *str)
 	if (name == NULL)
 		return (NULL);
 	while ((sub = strtok(NULL, "=")) != NULL) {
-		data = strcat(data, sub);
+		data = my_strcat(data, sub);
 	}
 	var = create_variable(name, data);
 	return (var);

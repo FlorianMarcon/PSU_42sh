@@ -9,7 +9,7 @@
 #include <string.h>
 #include "variable.h"
 
-variable_t	*create_variable(char *name, char *data)
+variable_t	*create_variable(char *name, void *data)
 {
 	variable_t *variable;
 
@@ -22,8 +22,6 @@ variable_t	*create_variable(char *name, char *data)
 		free(variable);;
 		return (NULL);
 	}
-	variable->data = NULL;
-	if (data != NULL)
-		variable->data = strdup(data);
+	variable->data = data;
 	return (variable);
 }

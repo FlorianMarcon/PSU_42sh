@@ -7,7 +7,7 @@
 
 #include "variable.h"
 
-void	add_data_in_list(char *name, char *data, linked_list_t *list)
+void	add_data_in_list(char *name, void *data, linked_list_t *list)
 {
 	variable_t *var;
 
@@ -17,7 +17,7 @@ void	add_data_in_list(char *name, char *data, linked_list_t *list)
 	if (var != NULL) {
 		if (var->data != NULL)
 			free(var->data);
-		var->data = my_strdup(data);
+		var->data = data;
 	} else {
 		var = create_variable(name, data);
 		create_node(list, var);
