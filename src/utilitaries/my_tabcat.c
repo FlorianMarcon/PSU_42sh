@@ -15,7 +15,8 @@ char	**my_tabcat(char **fir, char **sec)
 
 	if (fir == NULL || sec == NULL)
 		return (NULL);
-	if ((new = malloc(sizeof(*new) * (len_tab(fir) + len_tab(sec) + 1))) == NULL)
+	if ((new = malloc(sizeof(*new) * (len_tab(fir) + len_tab(sec) + 1)))
+									== NULL)
 		return (NULL);
 	for (unsigned int a = 0; fir[a] != NULL; a++)
 		new[i++] = strdup(fir[a]);

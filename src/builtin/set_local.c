@@ -22,7 +22,8 @@ void	create_variable_local(shell_t *shell, char **cmd, unsigned int *i)
 		data = strdup(cmd[*i + 2]);
 		*i = *i + 2;
 	}
-	if (shell->list_local == NULL && (var = create_variable(name, data)) != NULL)
+	if (shell->list_local == NULL && (var = create_variable(name, data))
+									!= NULL)
 		shell->list_local = create_list(var);
 	else if (shell->list_local != NULL)
 		add_data_in_list(name, data, shell->list_local);

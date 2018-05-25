@@ -15,8 +15,10 @@ int	verification_pipe_ambigous_redirection(tree_t *node)
 	while (node != NULL) {
 		tab = node->data;
 		if (tab != NULL && (op = operator_is_present(tab[0])) != NULL) {
-			if (my_strcmp(op, "<") == 0 || my_strcmp(op, "<<") == 0 ) {
-				fprintf(stderr, "%s\n", "Ambiguous input redirect.");
+			if (my_strcmp(op, "<") == 0 ||
+						my_strcmp(op, "<<") == 0 ) {
+				fprintf(stderr,
+					"%s\n", "Ambiguous input redirect.");
 				return (1);
 			}
 		}

@@ -13,7 +13,8 @@ char	**get_env(linked_list_t *env)
 	int i = -1;
 
 	while (env != NULL) {
-		new[++i] = malloc(my_strlen(((variable_t *)env->data)->name) + 1);
+		i++;
+		new[i] = malloc(my_strlen(((variable_t *)env->data)->name) + 1);
 		new[i] = my_strcpy(new[i], ((variable_t *)env->data)->name);
 		new[i] = my_strcat(new[i], ((variable_t *)env->data)->data);
 		env = env->next;

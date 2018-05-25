@@ -15,7 +15,8 @@ variable_t	*search_variable_matching(char *str, linked_list_t *list)
 
 	while (list != NULL) {
 		var = (variable_t *)list->data;
-		if (var != NULL && strncmp(var->name, str, strlen(var->name)) == 0)
+		if (var != NULL && strncmp(var->name, str, strlen(var->name))
+									== 0)
 			return (var);
 		list = list->next;
 	}

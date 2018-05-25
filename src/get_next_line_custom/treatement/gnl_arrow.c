@@ -10,28 +10,28 @@
 #include <unistd.h>
 #include "gnl_custom.h"
 
-void	gnl_arrow_treatement(unsigned int *index, shell_t *sh, int nb, char *str)
+void	gnl_arrow_treatement(unsigned int *ind, shell_t *sh, int nb, char *str)
 {
 	int i = sh->index;
 
 	switch (nb) {
-		case 65: if (i != sh->size_history && sh->history[i + 1] != NULL)
+		case 65: if (i != sh->size_history &&
+						sh->history[i + 1] != NULL)
 			sh->index++;
 		break; if (i != -1)
 			i--;
 		case 66:
 		break;
-		case 67: if (*index != strlen(str)) {
+		case 67: if (*ind != strlen(str)) {
 			dprintf(1, "\033[1C");
-			*index = *index + 1;
+			*ind = *ind + 1;
 		}
 		break;
-		case 68: if (*index != 0) {
+		case 68: if (*ind != 0) {
 			dprintf(1, "\033[1D");
-			*index = *index - 1;
+			*ind = *ind - 1;
 		}
 		break;
-		default: break;
 }
 
 }

@@ -21,12 +21,12 @@ Test(create_variable_local, success)
 
 	create_variable_local(&shell, cmd, &i);
 	cr_assert_neq(shell.list_local, NULL);
-	cr_assert_str_eq(((variable_t *)shell.list_local->data)->name, "flonflon");
-	cr_assert_str_eq(((variable_t *)shell.list_local->data)->data, "better");
+	cr_assert_str_eq(((variable_t *)shell.list_local->data)->name,
+								"flonflon");
+	cr_assert_str_eq(((variable_t *)shell.list_local->data)->data,
+								"better");
 	cmd[1] = cmd[2];
 	create_variable_local(&shell, cmd, &i);
-	//cr_assert_neq(var, NULL);
-	//&cr_assert_eq(var->data, NULL);
 
 }
 Test(create_variable_local, fail)
@@ -40,7 +40,6 @@ Test(create_variable_local, fail)
 
 	cr_assert_eq(shell.list_local, NULL);
 }
-/*
 
 Test(set_local, success)
 {
@@ -62,4 +61,4 @@ Test(set_local, success)
 	var = (variable_t *)shell.list_local->data;
 	cr_assert_str_eq(var->name, "flonflon");
 	cr_assert_str_eq(var->data, "hello");
-}*/
+}
