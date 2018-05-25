@@ -45,6 +45,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/utilitaries/sort_list.c	\
 		$(WAY)/utilitaries/my_char_ispresent.c	\
 		$(WAY)/utilitaries/get_old_pwd.c	\
+		$(WAY)/utilitaries/put_instruction_in_history.c	\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\
@@ -53,6 +54,8 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/builtin/which.c		\
 		$(WAY)/builtin/alias.c		\
 		$(WAY)/builtin/is_builtin.c		\
+		$(WAY)/builtin/fg_builtin.c		\
+		$(WAY)/builtin/repeat.c		\
 		$(WAY)/run_cmd/run_cmd.c		\
 		$(WAY)/run_cmd/run_pipe.c		\
 		$(WAY)/run_cmd/run_and_or.c		\
@@ -82,7 +85,8 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/variable/add_data_in_list.c	\
                 $(WAY)/get_next_line_custom/auto_complétion/auto_completion_launch.c    \
 
-SRC_UT	=	hash_map/tests_utils.c			\
+SRC_UT	=	builtin/unset_local/tests_utils.c	\
+		hash_map/tests_utils.c			\
 		hash_map/tests_utils_second.c			\
 		utilitaries/is_executable/tests_utils.c	\
 		utilitaries/get_path/tests_utils.c	\
@@ -92,6 +96,7 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		utilitaries/my_tabcat/tests_utils.c	\
 		utilitaries/sort_list/tests_utils.c	\
 		utilitaries/my_char_ispresent/tests_utils.c	\
+		utilitaries/put_instruction_in_history/tests_utils.c	\
 		get_next_instruction/parsing_command_line/tests_utils.c	\
 		get_next_instruction/parsing_command_line/tests_utils_second.c	\
 		get_next_instruction/get_next_instruction/tests_utils.c	\
@@ -113,7 +118,6 @@ SRC_UT	=	hash_map/tests_utils.c			\
 		variable/create_variable/tests_utils.c	\
 		variable/add_data_in_list/tests_utils.c	\
 		builtin/set_local/tests_utils.c	\
-		builtin/unset_local/tests_utils.c	\
 		verification/verification_cmd/tests_utils.c		\
 
 OBJ	=	$(SRC:.c=.o)

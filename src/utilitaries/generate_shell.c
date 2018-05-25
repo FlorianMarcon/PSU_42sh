@@ -20,8 +20,6 @@ unsigned int	generate_shell(char **envp, shell_t *shell)
 
 	shell->arr_env = envp;
 	shell->list_env = init_env(envp);
-//	for (unsigned int i = 0; shell->arr_env[i] != NULL; i++)
-//	fprintf(stderr, "env ... %s\n", shell->arr_env[i]);
 	getcwd(shell->pwd, sizeof(shell->pwd));
 	shell->old_pwd = get_old_pwd(shell->list_env);
 	var = search_variable("PATH", shell->list_env);
@@ -31,5 +29,8 @@ unsigned int	generate_shell(char **envp, shell_t *shell)
 	shell->process_back = NULL;
 	shell->list_local = NULL;
 	shell->list_alias = NULL;
+	shell->size_history = 30;
+	for (unsigned int i = 0; i != shell->size_history; i++)
+		shell->history[i] = NULL;
 	return (0);
 }
