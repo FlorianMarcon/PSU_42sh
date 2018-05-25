@@ -147,7 +147,9 @@ int	fg_builtin(shell_t *shell, char **cmd);
 
 int	repeat(shell_t *shell, char **cmd);
 
-static const built_t builtin [13] = {
+int	echo(shell_t *shell, char **cmd);
+
+static const built_t builtin [14] = {
 	{"env", env},
 	{"exit", exit_program},
 	{"cd", current_directory},
@@ -160,6 +162,7 @@ static const built_t builtin [13] = {
 	{"alias", alias},
 	{"fg", fg_builtin},
 	{"repeat", repeat},
+	{"echo", echo},
 	{NULL, NULL}
 };
 // run cmd

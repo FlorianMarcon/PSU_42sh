@@ -49,6 +49,7 @@ SRC	=	$(WAY)/shell.c	\
 		$(WAY)/builtin/current_directory.c	\
 		$(WAY)/builtin/exit_program.c		\
 		$(WAY)/builtin/set_local.c		\
+		$(WAY)/builtin/echo.c		\
 		$(WAY)/builtin/unset_local.c		\
 		$(WAY)/builtin/where.c		\
 		$(WAY)/builtin/which.c		\
