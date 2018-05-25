@@ -43,6 +43,7 @@ SRC	=	$(WAY)/main.c	\
 		$(WAY)/utilitaries/get_old_pwd.c	\
 		$(WAY)/utilitaries/sort_list.c	\
 		$(WAY)/utilitaries/my_char_ispresent.c	\
+		$(WAY)/utilitaries/put_instruction_in_history.c	\
 		$(WAY)/env/create_linked_env.c		\
 		$(WAY)/env/env.c			\
 		$(WAY)/env/setenv.c			\
