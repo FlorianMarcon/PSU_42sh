@@ -12,7 +12,7 @@ Test(put_instruction_in_history, test1)
 {
 	shell_t shell = {.size_history = 3};
 
-	for (unsigned int i = 0; i != shell.size_history; i++)
+	for (int i = 0; i != shell.size_history; i++)
 		shell.history[i] = NULL;
 	put_instruction_in_history(&shell, "ls -l");
 	cr_assert_neq(shell.history[0], NULL);
@@ -24,7 +24,7 @@ Test(put_instruction_in_history, test2)
 {
 	shell_t shell = {.size_history = 3};
 
-	for (unsigned int i = 0; i != shell.size_history; i++)
+	for (int i = 0; i != shell.size_history; i++)
 		shell.history[i] = NULL;
 	put_instruction_in_history(&shell, "ls -l");
 	put_instruction_in_history(&shell, "ls -l");
@@ -38,7 +38,7 @@ Test(put_instruction_in_history, fail)
 {
 	shell_t shell = {.size_history = 3};
 
-	for (unsigned int i = 0; i != shell.size_history; i++)
+	for (int i = 0; i != shell.size_history; i++)
 		shell.history[i] = NULL;
 	put_instruction_in_history(NULL, "STR");
 	put_instruction_in_history(&shell, NULL);

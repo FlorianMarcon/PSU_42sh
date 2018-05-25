@@ -10,7 +10,7 @@
 
 void	put_instruction_in_history(shell_t *shell, char *str)
 {
-	unsigned int i = 0;
+	int i = 0;
 
 	if (str == NULL || shell == NULL)
 		return;
