@@ -17,7 +17,7 @@ variable_t	*create_variable(char *name, void *data)
 		return (NULL);
 	if ((variable = malloc(sizeof(*variable))) == NULL)
 		return (NULL);
-	variable->name = strdup(name);
+	variable->name = name;
 	if (variable->name == NULL) {
 		free(variable);;
 		return (NULL);

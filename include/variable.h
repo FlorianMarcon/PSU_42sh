@@ -18,8 +18,6 @@ typedef struct variable {
 
 // local variable
 
-variable_t	*create_variable_local(char **cmd, unsigned int *i);
-
 void	destroy_local_variable(linked_list_t **list_local, variable_t *var);
 
 //utilitaries variable

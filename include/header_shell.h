@@ -40,6 +40,10 @@ typedef struct shell_s {
 	//allias
 	linked_list_t *list_alias;
 
+	//history
+	char *history[30];
+	unsigned int size_history;
+
 }shell_t;
 
 int	minishell(shell_t *shell);
@@ -100,6 +104,8 @@ int	my_char_ispresent(char *str, char label);
 
 void	sync_pwd(shell_t *shell);
 
+void	put_instruction_in_history(shell_t *shell, char *str);
+
 // builtin
 
 typedef struct built_s {
@@ -127,7 +133,7 @@ int	which(shell_t *shell, char **cmd);
 
 int	set_local(shell_t *shell, char **cmd);
 
-void	add_variable_list_local(shell_t *shell, variable_t *var);
+void	create_variable_local(shell_t *shell, char **cmd, unsigned int *i);
 
 int	unset_local(shell_t *shell, char **cmd);
 

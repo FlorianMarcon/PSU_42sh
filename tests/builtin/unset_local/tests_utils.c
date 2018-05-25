@@ -11,8 +11,8 @@
 
 Test(destroy_local_variable, test1)
 {
-	variable_t *first = create_variable("flonflon", "12");
-	variable_t *second = create_variable("last", NULL);
+	variable_t *first = create_variable(strdup("flonflon"), strdup("12"));
+	variable_t *second = create_variable(strdup("last"), NULL);
 	linked_list_t *list = create_list(first);
 
 	create_node(list, second);
