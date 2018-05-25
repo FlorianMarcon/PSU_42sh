@@ -8,11 +8,13 @@
 #include <string.h>
 #include <stdio.h>
 #include "my.h"
+#include "gnl_custom.h"
 
-char	*gnl_delete_char(char *str, unsigned int *index)
+char	*gnl_delete_char(char *str, unsigned int *index, shell_t *sh)
 {
 	char *var = str;
 
+	(void)sh;
 	if (*index == 0)
 		return (str);
 	dprintf(1, "\033[%luD\033[K", strlen(str));

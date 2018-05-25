@@ -42,7 +42,9 @@ typedef struct shell_s {
 
 	//history
 	char *history[30];
-	unsigned int size_history;
+	int size_history;
+	int index;
+	char *mem;
 
 }shell_t;
 

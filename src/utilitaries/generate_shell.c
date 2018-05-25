@@ -32,5 +32,6 @@ unsigned int	generate_shell(char **envp, shell_t *shell)
 	shell->size_history = 30;
 	for (unsigned int i = 0; i != shell->size_history; i++)
 		shell->history[i] = NULL;
+	shell->mem = NULL;
 	return (0);
 }

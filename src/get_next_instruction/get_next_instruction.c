@@ -36,8 +36,8 @@ tree_t	*get_next_instruction(shell_t *shell, int fd)
 
 	(void)shell;
 	if (isatty(0)) {
-		str = gnl_custom();
-		//put_instruction_in_history(shell, str);
+		str = gnl_custom(shell);
+		put_instruction_in_history(shell, str);
 	}
 	else
 		str = get_next_line(fd);

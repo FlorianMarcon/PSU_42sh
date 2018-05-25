@@ -10,7 +10,7 @@
 #include <string.h>
 #include "gnl_custom.h"
 
-char	*gnl_special(char *str, unsigned int *index)
+char	*gnl_special(char *str, unsigned int *index, shell_t *sh)
 {
 	char new[2] = " \0";
 
@@ -18,7 +18,7 @@ char	*gnl_special(char *str, unsigned int *index)
 		return (str);
 	for (unsigned int i = 0; gnl_special_builtin[i].label != 0; i++) {
 		if (new[0] == gnl_special_builtin[i].label) {
-			str = gnl_special_builtin[i].ptr(str, index);
+			str = gnl_special_builtin[i].ptr(str, index, sh);
 			return (str);
 		}
 	}
