@@ -7,25 +7,39 @@
 
 #include "header_shell.h"
 
-void	delete(linked_list_t *list, char *cmd)
+void	delete(linked_list_t **list, char *cmd)
 {
-	while (my_strcmp(((variable_t *)list->next->data)->name, cmd) != 0
-							&& list->next != NULL)
-		list = list->next;
-	if (list->next != NULL) {
-		free(((variable_t *)list->next->data)->name);
-		free(((variable_t *)list->next->data)->data);
-		free(list->next->data);
-		delete_node(list);
+	linked_list_t *tmp = *list;
+	linked_list_t *node = *list;
+	variable_t *var = search_variable(cmd, tmp);
+
+	if (tmp == NULL || var == NULL)
+		return;
+	if (tmp->data == var) {
+		destroy_variable(var);
+		*list = tmp->next;
+		free(node);
+	} else {
+		while (tmp != NULL && tmp->next != NULL) {
+			node = tmp->next;
+			if (node->data == var) {
+				destroy_variable(var);
+				tmp->next = tmp->next->next;
+				free(node);
+			}
+			tmp = tmp->next;
+		}
 	}
 }
 
 int	unset_env(shell_t *shell, char **cmd)
 {
 	int i = 0;
+
+
 	if (cmd[1] == NULL)
 		return (1);
 	while (cmd[++i] != NULL)
-		delete(shell->list_env, cmd[i]);
+		delete(&shell->list_env, cmd[i]);
 	return (0);
 }
