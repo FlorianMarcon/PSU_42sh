@@ -14,8 +14,11 @@
 #include "variable.h"
 #include "binary.h"
 
-unsigned int	generate_shell(char **envp, shell_t *shell)
+void	generate_shell_indexe(char **envp, shell_t *shell)
 {
+	char *secour = "/home/marcon/bin:/home/marcon/.local/bin:/usr/local/sbin\
+:/usr/local/bin:/usr/sbin:/usr/bin:/sbin\
+:/bin:/usr/games:/usr/local/games:/snap/bin";
 	variable_t *var = NULL;
 
 	shell->arr_env = envp;
@@ -23,7 +26,14 @@ unsigned int	generate_shell(char **envp, shell_t *shell)
 	getcwd(shell->pwd, sizeof(shell->pwd));
 	shell->old_pwd = get_old_pwd(shell->list_env);
 	var = search_variable("PATH", shell->list_env);
-	shell->binary = generate_hm_binary(var->data);
+	if (var != NULL && var->data != NULL)
+		shell->binary = generate_hm_binary(var->data);
+	else
+		shell->binary = generate_hm_binary(secour);
+}
+unsigned int	generate_shell(char **envp, shell_t *shell)
+{
+	generate_shell_indexe(envp, shell);
 	shell->value_exit = 0;
 	shell->exit = false;
 	shell->process_back = NULL;
