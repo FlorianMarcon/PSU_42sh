@@ -1,0 +1,1 @@
+ls -l > file ; cat file & ls -l

@@ -1,0 +1,41 @@
+ls /dev
+ls -l /dev
+ls -l /dev
+echo "salut"
+echo salut
+ls -l /dev | grep tty
+ls -l /dev | grep tty | more
+ls -l /dev ; ls -l /dev
+mkdir test ; cd test ; ls -a /dev ; ls /dev | cat | wc -c > tutu ; cat tutu
+./lemin/lem_in < ./lemin/anthill
+bad_command sizas
+cd
+cd .././; pwd; cd - 
+cd ../../../../../../../../../../../../../../../../../../../../../../../../../../../../../ ; pwd ; cd -
+cat /etc/passwd | tr -s abcdefghijklmnopqrstuvwxyz | cut -c 2 | grep -e a -e b -e \
+ls > toto
+date >> toto
+cat < toto
+<
+<<
+>
+>>
+< a
+<< a
+> a
+>> a
+a <
+a <<
+a >
+a >>
+a < a
+a << a
+a > a
+a >> a
+echo "ls /dev" | tcsh >
+./lemin/lem_in < ./lemin/anthill
+ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls | ls /dev | grep tty
+cat ./data/test_double_left_chevron
+echo "saluuuut" && echo "succees"
+zefhzehdZDHE || echo "display that"
+echo "salut " || echo "this is no execute"
